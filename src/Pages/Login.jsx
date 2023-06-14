@@ -24,6 +24,11 @@ const Login = () => {
     })();
   };
 
+  const handleLogout = () => {
+    authDispatch({type : "SET_LOGOUT"})
+    userDispatch({type : "SET_CURRENT_USER", payload : {}})
+  }
+
   return (
     <>
       <NavLink to="/">Home</NavLink>
@@ -47,6 +52,7 @@ const Login = () => {
       />
       <br />
       <button onClick={() => handleLogin()}>Login</button>
+      <button onClick={() => handleLogout()}>Log Out</button>
     </>
   );
 };

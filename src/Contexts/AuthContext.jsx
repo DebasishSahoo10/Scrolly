@@ -7,6 +7,7 @@ export const AuthContext = createContext()
 const handleAuth = (auth, action) => {
     switch (action.type) {
         case "SET_LOGIN" : return action.payload;
+        case "SET_LOGOUT" : return "";
         default : return auth
     }
 }
