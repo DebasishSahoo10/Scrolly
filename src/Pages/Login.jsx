@@ -18,6 +18,7 @@ const Login = () => {
         console.log(token);
         authDispatch({ type: "SET_LOGIN", payload: token.encodedToken });
         userDispatch({ type: "SET_CURRENT_USER", payload: token.foundUser });
+        token.foundUser.following.map(user => userDispatch({ type: "UPDATE_FOLLOWING", payload: user.username }))
       } catch (err) {
         console.error(err);
       }
