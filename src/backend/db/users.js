@@ -16,65 +16,65 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],
-  //   following: [
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Debasish",
-  //       lastName: "Sahoo",
-  //       username: "de.3.ev",
-  //     },
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Subhasmita",
-  //       lastName: "Rout",
-  //       username: "thehope_",
-  //     },
-  //   ],
-  //   followers: [
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Debasish",
-  //       lastName: "Sahoo",
-  //       username: "de.3.ev",
-  //     },
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Subhasmita",
-  //       lastName: "Rout",
-  //       username: "thehope_",
-  //     },
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Abhisek",
-  //       lastName: "Mohanty",
-  //       username: "7000rpm",
-  //     },
-  //   ],
-  // },
-  // {
-  //   _id: uuid(),
-  //   firstName: "Debasish",
-  //   lastName: "Sahoo",
-  //   username: "de.3.ev",
-  //   password: "thetester2",
-  //   createdAt: formatDate(),
-  //   updatedAt: formatDate(),
-  //   following: [
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Tester",
-  //       lastName: "Man",
-  //       username: "thetester_",
-  //     },
-  //   ],
-  //   followers: [
-  //     {
-  //       _id: uuid(),
-  //       firstName: "Tester",
-  //       lastName: "Man",
-  //       username: "thetester_",
-  //     },
-  //   ],
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Debasish",
+        lastName: "Sahoo",
+        username: "de.3.ev",
+      },
+      {
+        _id: uuid(),
+        firstName: "Subhasmita",
+        lastName: "Rout",
+        username: "thehope_",
+      },
+    ],
+    followers: [
+      {
+        _id: uuid(),
+        firstName: "Debasish",
+        lastName: "Sahoo",
+        username: "de.3.ev",
+      },
+      {
+        _id: uuid(),
+        firstName: "Subhasmita",
+        lastName: "Rout",
+        username: "thehope_",
+      },
+      {
+        _id: uuid(),
+        firstName: "Abhisek",
+        lastName: "Mohanty",
+        username: "7000rpm",
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    firstName: "Debasish",
+    lastName: "Sahoo",
+    username: "de.3.ev",
+    password: "thetester2",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Tester",
+        lastName: "Man",
+        username: "thetester_",
+      },
+    ],
+    followers: [
+      {
+        _id: uuid(),
+        firstName: "Tester",
+        lastName: "Man",
+        username: "thetester_",
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -85,22 +85,22 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],
-    // following: [
-    //   {
-    //     _id: uuid(),
-    //     firstName: "Tester",
-    //     lastName: "Man",
-    //     username: "thetester_",
-    //   },
-    // ],
-    // followers: [
-    //   {
-    //     _id: uuid(),
-    //     firstName: "Tester",
-    //     lastName: "Man",
-    //     username: "thetester_",
-    //   },
-    // ],
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Tester",
+        lastName: "Man",
+        username: "thetester_",
+      },
+    ],
+    followers: [
+      {
+        _id: uuid(),
+        firstName: "Tester",
+        lastName: "Man",
+        username: "thetester_",
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -111,15 +111,15 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],
-    // following: [
-    //   {
-    //     _id: uuid(),
-    //     firstName: "Tester",
-    //     lastName: "Man",
-    //     username: "thetester_",
-    //   },
-    // ],
-    // followers: [],
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Tester",
+        lastName: "Man",
+        username: "thetester_",
+      },
+    ],
+    followers: [],
   },
   {
     _id: uuid(),
@@ -130,7 +130,7 @@ export const users = [
     bookmarks: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    // following: [],
-    // followers: [],
+    following: [],
+    followers: [],
   },
 ];
