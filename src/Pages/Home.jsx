@@ -36,6 +36,7 @@ const Home = () => {
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/login" style={{marginLeft : "10px"}}>Login</NavLink>
                 <NavLink to="/selected" style={{marginLeft : "10px"}}>Selected</NavLink>
+                <NavLink to="/bookmarks" style={{marginLeft : "10px"}}>Bookmarks</NavLink>
             </div>
             <div>
                 <button value={"Trending"} style={{color : sortFilter==="Trending" && "Yellow"}} onClick={(e)=>setSort(e.target.value)}>Trending</button>

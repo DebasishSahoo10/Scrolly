@@ -16,6 +16,8 @@ const handleState = (state, action) => {
       return {...state, editableContent : action.payload};
     case "EDIT_ID" :
       return {...state, editingID : action.payload}
+    case "SET_BOOKMARKS" :
+      return {...state, bookmarks : action.payload}
     default:
       return state;
   }
@@ -40,6 +42,7 @@ export const DataProvider = ({ children }) => {
   }, []);
   const [state, dispatch] = useReducer(handleState, {
     posts: [],
+    bookmarks : [],
     newPostField: false,
     editingPost: false,
     editableContent: "",

@@ -9,6 +9,7 @@ import Login from "./Pages/Login";
 import { UserProvider } from "./Contexts/UserContext";
 import { User } from "./Components/User";
 import { Selected } from "./Pages/Selected";
+import { Bookmark } from "./Pages/Bookmark";
 // Call make Server
 makeServer();
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/user/:username" element={<User/>}/>
                 <Route path="/selected" element={<Selected/>}/>
+                <Route path="/bookmarks" element={<Bookmark/>}/>
               </Routes>
             </UserProvider>
           </DataProvider>

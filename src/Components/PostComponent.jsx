@@ -8,9 +8,9 @@ import { UserContext } from "../Contexts/UserContext";
 
 export const PostComponent = ({ post }) => {
   const navigate = useNavigate();
-  const { dispatch } = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const [isDisliked, setIsDisliked] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const isBookmarked = state.bookmarks.includes(post._id)
   const { auth } = useContext(AuthContext);
   const {userState} = useContext(UserContext)
   const likeHandler = (likeState, postId) => {
@@ -85,9 +85,8 @@ export const PostComponent = ({ post }) => {
             authorization : auth
           }
         })
-        setIsBookmarked(prev => !prev)
         const bookmarkArray = await serverCall.json()
-        console.log(bookmarkArray)
+        dispatch({type : "SET_BOOKMARKS", payload : bookmarkArray.bookmarks})
       } catch (err) {
         console.error(err)
       }
