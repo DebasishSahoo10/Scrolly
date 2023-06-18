@@ -5,6 +5,7 @@ import { useState } from "react";
 import { PostComponent } from "../Components/PostComponent";
 import { AuthContext } from "../Contexts/AuthContext";
 import { PostField } from "../Components/PostField";
+import { Header } from "../Components/Header";
 
 const Home = () => {
 
@@ -31,8 +32,8 @@ const Home = () => {
 
     return (
         <>
-            <h1>Scrolly</h1>
-            <div>
+            <Header/>
+            {/* <div>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/login" style={{marginLeft : "10px"}}>Login</NavLink>
                 <NavLink to="/selected" style={{marginLeft : "10px"}}>Selected</NavLink>
@@ -56,7 +57,7 @@ const Home = () => {
                         </li>
                     )
                 })}
-            </ul>
+            </ul> */}
         </>
     )
 }
