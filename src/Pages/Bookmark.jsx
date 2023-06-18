@@ -5,7 +5,6 @@ import { PostComponent } from "../Components/PostComponent";
 
 export const Bookmark = () => {
   const { state } = useContext(DataContext);
-  console.log(state.bookmarks)
   const onlyBookmarked = state.posts.filter(post => state.bookmarks.includes(post._id))
   return (
     <>
