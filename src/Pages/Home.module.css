@@ -1,0 +1,25 @@
+.postlists {
+    padding-inline-start: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+    align-items: center;
+    gap: 20px;
+    margin-left: 40px;
+    position: relative;
+    padding-bottom: 20px;
+    padding-right: 15px;
+}
+.addButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

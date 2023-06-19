@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../Contexts/UserContext";
+import { Nav } from "../Components/Nav";
 
 const Login = () => {
   const { authDispatch } = useContext(AuthContext);
@@ -32,8 +33,7 @@ const Login = () => {
 
   return (
     <>
-      <NavLink to="/">Home</NavLink>
-      <br />
+      {/* <Nav/> */}
       <label htmlFor="name-input">Name : </label>
       <input
         type="text"

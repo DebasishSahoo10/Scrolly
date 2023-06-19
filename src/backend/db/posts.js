@@ -11,7 +11,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias ",
+      "Here is test sample of what a user can write as the post caption and just for a normal text post here are some more text ",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -24,7 +24,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis ",
+      "Here is test sample of what a user can write as the post caption and just for a normal text post here are some more text",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -37,7 +37,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "Explore - At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis ",
+      "Here is test sample of what a user can write as the post caption and just for a normal text post here are some more text ",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -50,7 +50,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "EXPLORE 2 - At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis ",
+      "Here is test sample of what a user can write as the post caption and just for a normal text post here are some more text ",
     likes: {
       likeCount: 0,
       likedBy: [],

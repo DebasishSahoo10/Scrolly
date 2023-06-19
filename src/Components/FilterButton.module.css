@@ -1,0 +1,15 @@
+.buttoncontainer {
+    display: flex;
+    gap: 40px;
+    border: 1px solid #A5A735;
+    width: 100%;
+    padding-bottom: 5px;
+    justify-content: center;
+}
+.buttoncontainer button {
+    color: #ffff;
+    background-color: transparent;
+    font-size: 16px;
+    border: 0;
+    font-family: 'Recursive', sans-serif;
+}

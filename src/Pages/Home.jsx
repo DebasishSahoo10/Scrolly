@@ -1,11 +1,14 @@
 import { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { DataContext } from "../Contexts/DataContext";
 import { useState } from "react";
 import { PostComponent } from "../Components/PostComponent";
 import { AuthContext } from "../Contexts/AuthContext";
 import { PostField } from "../Components/PostField";
-import { Header } from "../Components/Header";
+import { Nav } from "../Components/Nav";
+import { FilterButton } from "../Components/FilterButton";
+import HomeStyles from "./Home.module.css"
+import Add from "../assets/Add.png"
 
 const Home = () => {
 
@@ -17,10 +20,7 @@ const Home = () => {
     const {auth} = useContext(AuthContext)
 
     const filteredState = state.posts.slice().sort((a,b)=> sortFilter==="Trending" ? b.likes.likeCount - a.likes.likeCount : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-   
-    const setSort = (text) => {
-        setSortFilter(text)
-    }
+
 
     const handlePostBtn = () => {
         if (auth.length===0) {
@@ -31,25 +31,14 @@ const Home = () => {
     }
 
     return (
-        <>
-            <Header/>
-            {/* <div>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/login" style={{marginLeft : "10px"}}>Login</NavLink>
-                <NavLink to="/selected" style={{marginLeft : "10px"}}>Selected</NavLink>
-                <NavLink to="/bookmarks" style={{marginLeft : "10px"}}>Bookmarks</NavLink>
-                <NavLink to="/profile" style={{marginLeft : "10px"}}>Profile</NavLink>
-            </div>
-            <div>
-                <button value={"Trending"} style={{color : sortFilter==="Trending" && "Yellow"}} onClick={(e)=>setSort(e.target.value)}>Trending</button>
-
-                <button value={"Newest"} style={{color : sortFilter==="Newest" && "Yellow"}} onClick={(e)=>setSort(e.target.value)}>Newest</button>
-            </div>
-            <div>
-                <button onClick={()=>handlePostBtn()}>Add a Post</button>
+        <div className={HomeStyles.home}>
+            <Nav/>
+            <FilterButton sortState={sortFilter} sortFunc={setSortFilter}/>
+            <div className={HomeStyles.addButton}>
+                <img src={Add} alt="" onClick={()=>handlePostBtn()} height={60} width={60}/>
                 {state.newPostField && <PostField/>}
             </div>
-            <ul>
+            <ul className={HomeStyles.postlists}>
                 {filteredState.map(post => {
                     return (
                         <li key={post._id} style={{listStyle : "none"}}>
@@ -57,8 +46,8 @@ const Home = () => {
                         </li>
                     )
                 })}
-            </ul> */}
-        </>
+            </ul>
+        </div>
     )
 }
 

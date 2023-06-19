@@ -5,14 +5,23 @@ import { useContext } from "react";
 import { DataContext } from "../Contexts/DataContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../Contexts/UserContext";
+import PostComponentStyles from "./PostComponent.module.css";
+import Bookmark from "../assets/Bookmark.png";
+import Bookmarked from "../assets/Bookmarked.png";
+import Like from "../assets/Like.png";
+import Liked from "../assets/Liked.png";
+import Remove from "../assets/Remove.png"
+import Share from "../assets/Share.png"
+import Edit from "../assets/Edit.png"
+import Comment from "../assets/Comment.png"
 
 export const PostComponent = ({ post }) => {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(DataContext);
   const [isDisliked, setIsDisliked] = useState(false);
-  const isBookmarked = state.bookmarks.includes(post._id)
+  const isBookmarked = state.bookmarks.includes(post._id);
   const { auth } = useContext(AuthContext);
-  const {userState} = useContext(UserContext)
+  const { userState } = useContext(UserContext);
   const likeHandler = (likeState, postId) => {
     if (auth.length === 0) {
       navigate("/login");
@@ -28,7 +37,6 @@ export const PostComponent = ({ post }) => {
             },
           });
           const newPosts = await serverCall.json();
-          console.log(newPosts["posts"]);
           dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
           setIsDisliked(true);
         } catch (err) {
@@ -45,7 +53,6 @@ export const PostComponent = ({ post }) => {
             },
           });
           const newPosts = await serverCall.json();
-          console.log(newPosts["posts"]);
           dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
           setIsDisliked(false);
         } catch (err) {
@@ -77,55 +84,71 @@ export const PostComponent = ({ post }) => {
     })();
   };
   const handleBookmark = (postID) => {
-    (async()=>{
+    (async () => {
       try {
-        const serverCall = await fetch(`/api/users/${isBookmarked ? 'remove-bookmark' : 'bookmark'}/${postID}`, {
-          method : "POST",
-          headers : {
-            authorization : auth
+        const serverCall = await fetch(
+          `/api/users/${
+            isBookmarked ? "remove-bookmark" : "bookmark"
+          }/${postID}`,
+          {
+            method: "POST",
+            headers: {
+              authorization: auth,
+            },
           }
-        })
-        const bookmarkArray = await serverCall.json()
-        dispatch({type : "SET_BOOKMARKS", payload : bookmarkArray.bookmarks})
+        );
+        const bookmarkArray = await serverCall.json();
+        dispatch({ type: "SET_BOOKMARKS", payload: bookmarkArray.bookmarks });
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
-    })()
-  }
+    })();
+  };
+  const user = userState.allUsers.find(
+    (user) => user.username === post.username
+  );
   return (
-    <div
-      style={{
-        border: "2px solid yellow",
-        marginBottom: "10px",
-        padding: "10px",
-      }}
-    >
-      <NavLink to={`/user/${post.username}`}><h3>{post.username}</h3></NavLink>
-      <p>{post.content}</p>
-      {post.username === userState.currentUser.username && (
-        <div>
-          <button onClick={() => handleDelete(post._id)}>Delete</button>
-          <button onClick={() => handleEdit(post.content, post._id)}>
-            Edit
-          </button>
+    <div className={PostComponentStyles.postcontainer}>
+      <div className={PostComponentStyles.usernameButton}>
+        <div className={PostComponentStyles.username}>
+          <img src={user.img} alt="" width={35} height={35} />
+          <div>
+            <NavLink to={`/user/${post.username}`}>
+              <h3>{post.username}</h3>
+            </NavLink>
+            <p className={PostComponentStyles.smalltext}>30 Min Ago</p>
+          </div>
         </div>
-      )}
-      <div>
-        {post.likes.likeCount !== 0 && (
-          <button
+        <div className={PostComponentStyles.buttons}>
+          <img
+            src={post.likes.likeCount === 0 ? Like : Liked}
+            alt=""
             onClick={() => likeHandler(post.likes.likeCount, post._id)}
-            style={{ color: "Red" }}
-          >
-            Liked - {post.likes.likeCount}
-          </button>
-        )}
-        {post.likes.likeCount === 0 && (
-          <button onClick={() => likeHandler(post.likes.likeCount, post._id)}>
-            Like
-          </button>
-        )}
-        <button onClick={()=>handleBookmark(post._id)}>{isBookmarked ? "Remove Bookmark" : "Bookmark"}</button>
+            width={25}
+            height={25}
+          />
+          
+          {post.username === userState.currentUser.username ? (
+            <>
+              <img src={Remove} alt="" onClick={() => handleDelete(post._id)} width={25} height={25}/>
+              <img src={Edit} alt="" onClick={() => handleEdit(post.content, post._id)} width={21} height={21}/>
+            </>
+          ) : (
+            <>
+              <img src={Comment} alt="" width={25} height={25}/>
+              <img src={Share} alt="" width={25} height={25}/>
+            </>
+          )}
+          <img
+            onClick={() => handleBookmark(post._id)}
+            src={isBookmarked ? Bookmarked : Bookmark}
+            alt=""
+            width={23}
+            height={23}
+          />
+        </div>
       </div>
+      <p className={PostComponentStyles.content}>{post.content}</p>
     </div>
   );
 };

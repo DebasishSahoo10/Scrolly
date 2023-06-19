@@ -9,7 +9,7 @@ export const Header = () => {
   const { userState } = useContext(UserContext);
   return (
     <div className={HeaderStyles.header}>
-      <h1>SCROLLY</h1>
+      <NavLink to="/"><h1>SCROLLY</h1></NavLink>
       {auth.length > 0 && (
         <div className={HeaderStyles.user}>
           <img
@@ -26,7 +26,7 @@ export const Header = () => {
           </div>
         </div>
       )}
-      <NavLink to="/login">{auth.length === 0 ? "LogIn" : "LogOut"}</NavLink>
+      <NavLink to="/login" className={HeaderStyles.loginlink}>{auth.length === 0 ? "LogIn" : "LogOut"}</NavLink>
     </div>
   );
 };

@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500&display=swap');
 
 body {
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   background-color: black;
   margin: 0;
+  border: 1px solid #A5A735;
+  border-bottom: 0px;
 }
 
 h1, h2, p, h3 {

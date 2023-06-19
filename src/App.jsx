@@ -11,6 +11,7 @@ import { User } from "./Components/User";
 import { Selected } from "./Pages/Selected";
 import { Bookmark } from "./Pages/Bookmark";
 import { Profile } from "./Pages/Profile";
+import { Header } from "./Components/Header";
 // Call make Server
 makeServer();
 
@@ -21,15 +22,18 @@ function App() {
         <AuthProvider>
           <DataProvider>
             <UserProvider>
-              <Routes>
-                <Route path="/mock" element={<Mockman />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/user/:username" element={<User/>}/>
-                <Route path="/selected" element={<Selected/>}/>
-                <Route path="/bookmarks" element={<Bookmark/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-              </Routes>
+              <Header />
+              <div>
+                <Routes>
+                  <Route path="/mock" element={<Mockman />} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/user/:username" element={<User />} />
+                  <Route path="/selected" element={<Selected />} />
+                  <Route path="/bookmarks" element={<Bookmark />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Routes>
+              </div>
             </UserProvider>
           </DataProvider>
         </AuthProvider>

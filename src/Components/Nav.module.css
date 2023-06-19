@@ -1,0 +1,15 @@
+.navcontainer {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.navcontainer a {
+    text-decoration: none;
+    color: #ffff;
+    font-family: 'Recursive', sans-serif;
+    font-size: 22px;
+}
+.activelink {
+    color:  red;
+}

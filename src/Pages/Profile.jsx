@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 import {AuthContext} from "../Contexts/AuthContext"
 import { useState } from "react"
 import { Avatars } from "../Local Database/Avatars"
+import { Nav } from "../Components/Nav"
 
 export const Profile = () => {
     const {userState, userDispatch} = useContext(UserContext)
@@ -48,15 +49,14 @@ export const Profile = () => {
     if (auth.length===0) {
         return (
             <>
-                <NavLink to="/">Home</NavLink>
+                <Nav/>
                 <h2>Login First</h2>
             </>
         )
     } 
     return (
         <>
-            <NavLink to="/">Home</NavLink>
-            <br />
+            <Nav/>
             <img src={userState.currentUser.img} alt="" width={100} height={100}/>
             <h2>{userState.currentUser.username}</h2>
             <p>{userState.currentUser.firstName} {userState.currentUser.lastName}</p>

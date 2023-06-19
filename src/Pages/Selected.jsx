@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../Contexts/DataContext";
 import { UserContext } from "../Contexts/UserContext";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthContext";
 import { PostField } from "../Components/PostField";
 import { PostComponent } from "../Components/PostComponent";
+import { Nav } from "../Components/Nav";
+import { FilterButton } from "../Components/FilterButton";
 
 export const Selected = () => {
   const navigate = useNavigate();
@@ -36,29 +38,8 @@ export const Selected = () => {
 
   return (
     <>
-      <div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/login" style={{ marginLeft: "10px" }}>
-          Login
-        </NavLink>
-      </div>
-      <div>
-        <button
-          value={"Trending"}
-          style={{ color: sortFilter === "Trending" && "Yellow" }}
-          onClick={(e) => setSort(e.target.value)}
-        >
-          Trending
-        </button>
-
-        <button
-          value={"Newest"}
-          style={{ color: sortFilter === "Newest" && "Yellow" }}
-          onClick={(e) => setSort(e.target.value)}
-        >
-          Newest
-        </button>
-      </div>
+      <Nav/>
+      <FilterButton sortState={sortFilter} sortFunc={setSortFilter}/>
       <div>
         <button onClick={() => handlePostBtn()}>Add a Post</button>
         {state.newPostField && <PostField />}
