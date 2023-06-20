@@ -3,7 +3,7 @@
     gap: 40px;
     border: 1px solid #A5A735;
     width: 70%;
-    padding-bottom: 5px;
+    padding: 10px 0px;
     justify-content: center;
 }
 .buttoncontainer button {
