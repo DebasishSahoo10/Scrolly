@@ -1,6 +1,5 @@
 import { makeServer } from "./server";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Mockman from "mockman-js";
 import "./App.css";
 import Home from "./Pages/Home";
 import { DataProvider } from "./Contexts/DataContext";
@@ -12,6 +11,7 @@ import { Selected } from "./Pages/Selected";
 import { Bookmark } from "./Pages/Bookmark";
 import { Profile } from "./Pages/Profile";
 import { Header } from "./Components/Header";
+import { Search } from "./Components/Search";
 // Call make Server
 makeServer();
 
@@ -23,9 +23,8 @@ function App() {
           <DataProvider>
             <UserProvider>
               <Header />
-              <div>
+              <div className="app-layout">
                 <Routes>
-                  <Route path="/mock" element={<Mockman />} />
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/user/:username" element={<User />} />
@@ -33,6 +32,7 @@ function App() {
                   <Route path="/bookmarks" element={<Bookmark />} />
                   <Route path="/profile" element={<Profile />} />
                 </Routes>
+                <Search/>
               </div>
             </UserProvider>
           </DataProvider>

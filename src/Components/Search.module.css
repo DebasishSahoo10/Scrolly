@@ -1,0 +1,41 @@
+.search {
+    font-family: 'Recursive', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 20%;
+    height: 100vh;
+    padding-left: 30px;
+    border-left: 1px solid #A5A735;
+}
+.search p {
+    font-size: 20px;
+}
+.search input {
+    height: 40px;
+    width: 90%;
+    border: 0px;
+    border-radius: 8px;
+    background-color:  #DADADA;
+    font-family: 'Recursive', sans-serif;
+    padding-left: 10px;
+}
+.username {
+    display: flex;
+    gap: 15px;
+}
+.username p {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-family: 'Recursive', sans-serif;
+}
+.username p:first-child {
+    font-size: 16px;
+}
+.userlist {
+    padding-inline-start: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}

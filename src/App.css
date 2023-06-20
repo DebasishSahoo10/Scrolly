@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500&display=swap');
 
 body {
-  width: 100%;
+  width: 99.8%;
   min-height: 100vh;
   background-color: black;
   margin: 0;
@@ -21,4 +21,10 @@ dialog {
   position: absolute;
   top: 50%;
   /* left: 50%; */
+}
+.app-layout {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px;
 }

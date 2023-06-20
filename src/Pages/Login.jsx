@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
-import { NavLink } from "react-router-dom";
 import { UserContext } from "../Contexts/UserContext";
-import { Nav } from "../Components/Nav";
+import LoginStyles from "./Login.module.css";
 
 const Login = () => {
   const { authDispatch } = useContext(AuthContext);
@@ -19,7 +18,9 @@ const Login = () => {
         console.log(token);
         authDispatch({ type: "SET_LOGIN", payload: token.encodedToken });
         userDispatch({ type: "SET_CURRENT_USER", payload: token.foundUser });
-        token.foundUser.following.map(user => userDispatch({ type: "UPDATE_FOLLOWING", payload: user.username }))
+        token.foundUser.following.map((user) =>
+          userDispatch({ type: "UPDATE_FOLLOWING", payload: user.username })
+        );
       } catch (err) {
         console.error(err);
       }
@@ -27,13 +28,13 @@ const Login = () => {
   };
 
   const handleLogout = () => {
-    authDispatch({type : "SET_LOGOUT"})
-    userDispatch({type : "SET_CURRENT_USER", payload : {}})
-  }
+    authDispatch({ type: "SET_LOGOUT" });
+    userDispatch({ type: "SET_CURRENT_USER", payload: {} });
+  };
 
   return (
-    <>
-      {/* <Nav/> */}
+    <div className={LoginStyles.login}>
+      <h1>Please Login First</h1>
       <label htmlFor="name-input">Name : </label>
       <input
         type="text"
@@ -52,9 +53,10 @@ const Login = () => {
         }
       />
       <br />
+
       <button onClick={() => handleLogin()}>Login</button>
       <button onClick={() => handleLogout()}>Log Out</button>
-    </>
+    </div>
   );
 };
 

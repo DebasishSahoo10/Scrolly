@@ -1,0 +1,40 @@
+.login input {
+  height: 40px;
+  width: 300px;
+  border: 0px;
+  border-radius: 8px;
+  background-color: transparent;
+  font-family: "Recursive", sans-serif;
+  border: 1px solid #a5a735;
+  padding-left: 10px;
+  color: #dadada;
+  font-size: large;
+}
+.login h1 {
+  font-family: "Recursive", sans-serif;
+  margin-bottom: 40px;
+}
+.login label {
+  color: white;
+  font-family: "Recursive", sans-serif;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login button {
+  width: 310px;
+  height: 40px;
+  color: #dadada;
+  background-color: transparent;
+  border: 2px dashed #a5a735;
+  border-radius: 8px;
+  font-family: "Recursive", sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+}
