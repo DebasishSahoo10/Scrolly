@@ -4,7 +4,6 @@ import { UserContext } from "../Contexts/UserContext";
 import { PostComponent } from "../Components/PostComponent";
 import { Nav } from "../Components/Nav";
 import { FilterButton } from "../Components/FilterButton";
-// import SelectedStyles from "./Selected.module.css";
 import HomeStyles from "./Home.module.css"
 
 export const Selected = () => {

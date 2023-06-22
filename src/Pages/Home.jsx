@@ -48,7 +48,7 @@ const Home = () => {
         />
       </div>
       <ul className={HomeStyles.postlists}>
-        {state.newPostField && <PostField />}
+        {state.newPostField && <PostField className={HomeStyles.newPostField}/>}
         {filteredState.map((post) => {
           return (
             <li key={post._id} style={{ listStyle: "none" }}>

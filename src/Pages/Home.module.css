@@ -14,11 +14,12 @@
     flex-direction: column;
     width: 80%;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 20px;
     position: relative;
     padding-bottom: 20px;
     padding-right: 15px;
+    margin-top: 40px;
 }
 .addButton {
     position: absolute;

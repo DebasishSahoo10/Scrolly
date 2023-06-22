@@ -12,7 +12,7 @@ export const Nav = () => {
     <div className={NavStyles.navcontainer}>
       <NavLink to="/" style={getActiveLinkStyle}>Explore</NavLink>
       <NavLink to="/selected" style={getActiveLinkStyle}>
-        Selected
+        Feed
       </NavLink>
       <NavLink to="/bookmarks" style={getActiveLinkStyle}>
         Bookmarks

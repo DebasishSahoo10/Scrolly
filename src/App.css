@@ -53,3 +53,8 @@ body::-webkit-scrollbar-thumb
 									   color-stop(0.72, rgb(148, 189, 73)),
 									   color-stop(0.86, rgb(136, 148, 28)));
 }
+
+h2 {
+  font-family: "Recursive", sans-serif;
+  align-self: center;
+}

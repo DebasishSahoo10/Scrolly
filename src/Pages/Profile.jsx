@@ -1,10 +1,10 @@
 import { useContext } from "react"
 import { UserContext } from "../Contexts/UserContext"
-import { NavLink } from "react-router-dom"
 import {AuthContext} from "../Contexts/AuthContext"
 import { useState } from "react"
 import { Avatars } from "../Local Database/Avatars"
 import { Nav } from "../Components/Nav"
+import HomeStyles from "./Home.module.css"
 
 export const Profile = () => {
     const {userState, userDispatch} = useContext(UserContext)
@@ -55,7 +55,7 @@ export const Profile = () => {
         )
     } 
     return (
-        <>
+        <div className={HomeStyles.home}>
             <Nav/>
             <img src={userState.currentUser.img} alt="" width={100} height={100}/>
             <h2>{userState.currentUser.username}</h2>
@@ -83,6 +83,6 @@ export const Profile = () => {
             </dialog>
             <button onClick={()=>setDialogOpen(prev => ({...prev, avatar : true}))}>Change Avatar</button>
             <button onClick={()=>setDialogOpen(prev => ({...prev, bio : true}))}>Change Bio</button>
-        </>
+        </div>
     )
 }
