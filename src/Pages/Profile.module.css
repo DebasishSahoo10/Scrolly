@@ -1,0 +1,35 @@
+.bioContainer {
+  font-family: "Recursive", sans-serif;
+  display: flex;
+  gap: 10px;
+}
+.bioContainer p {
+  max-width: 100px;
+  text-align: center;
+  border: 2px dashed #a5a735;
+  height: 100px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.buttonContainer {
+  font-family: "Recursive", sans-serif;
+  display: flex;
+  gap: 10px;
+}
+.buttonContainer button {
+  height: 75px;
+  font-family: "Recursive", sans-serif;
+  font-size: large;
+  background-color: transparent;
+  border: 2px dashed #a5a735;
+  color: white;
+  border-radius: 8px;
+  width: 120px;
+}
+.avatarContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+}
