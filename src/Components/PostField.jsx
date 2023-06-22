@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../Contexts/DataContext";
 import { AuthContext } from "../Contexts/AuthContext";
+import PostFieldStyles from "./PostField.module.css";
+import {UserContext} from "../Contexts/UserContext"
 
 export const PostField = () => {
   const { state, dispatch } = useContext(DataContext);
+  const {userState} = useContext(UserContext)
   const { auth } = useContext(AuthContext);
   const [input, setInput] = useState({ postData: { content: "" } });
   useEffect(() => {
@@ -30,8 +33,8 @@ export const PostField = () => {
         }
       };
       editPostCall();
-      dispatch({type : "EDIT_FALSE"})
-      dispatch({type : "POSTFIELD_FALSE"})
+      dispatch({ type: "EDIT_FALSE" });
+      dispatch({ type: "POSTFIELD_FALSE" });
       return;
     }
     (async () => {
@@ -53,17 +56,19 @@ export const PostField = () => {
     dispatch({ type: "POSTFIELD_FALSE" });
   };
   return (
-    <>
-      <div>
-        <input
-          type="text"
-          value={input.postData.content}
-          width={200}
-          height={100}
-          onChange={(e) => setInput({ postData: { content: e.target.value } })}
-        />
-        <button onClick={() => handleUpload()}>Upload</button>
-      </div>
-    </>
+    <div className={PostFieldStyles.newField}>
+      <img src={userState.currentUser.img} alt="" width={45} height={45}/>
+      <input
+        type="text"
+        value={input.postData.content}
+        width={200}
+        height={100}
+        onChange={(e) => setInput({ postData: { content: e.target.value } })}
+        placeholder="your post text goes here 📥"
+      />
+      <button>Select Image 📸</button>
+      <button onClick={() => handleUpload()}>Upload ✅</button>
+      <button onClick={()=> dispatch({ type: "POSTFIELD_FALSE" })}>Dismiss 🕯️</button>
+    </div>
   );
 };

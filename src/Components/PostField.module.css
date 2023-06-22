@@ -1,0 +1,29 @@
+.newField {
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #A5A735;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.newField input {
+    width: 300px;
+    height: 60px;
+    border: 2px dashed #A5A735;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Recursive', sans-serif;
+    padding: 5px;
+    font-size: medium;
+}
+.newField button {
+    height: 75px;
+    font-family: 'Recursive', sans-serif;
+    font-size: large;
+    background-color: transparent;
+    border: 2px dashed #A5A735;
+    color: white;
+    border-radius: 8px;
+    width: 120px;
+}
