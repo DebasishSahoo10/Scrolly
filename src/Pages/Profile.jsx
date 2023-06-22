@@ -49,14 +49,6 @@ export const Profile = () => {
     setDialogOpen((prev) => ({ ...prev, avatar: false }));
   };
 
-  if (auth.length === 0) {
-    return (
-      <>
-        <Nav />
-        <h2>Login First</h2>
-      </>
-    );
-  }
   return (
     <div className={HomeStyles.home}>
       <Nav />
@@ -65,7 +57,7 @@ export const Profile = () => {
         <h2 style={{ marginBottom: "0px" }}>
           {userState.currentUser.username}
         </h2>
-        <p style={{ "font-family": "Recursive, sans-serif", marginTop: "0px" }}>
+        <p style={{fontFamily: "Recursive, sans-serif", marginTop: "0px" }}>
           {userState.currentUser.firstName} {userState.currentUser.lastName}
         </p>s
       </div>

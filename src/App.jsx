@@ -12,6 +12,7 @@ import { Bookmark } from "./Pages/Bookmark";
 import { Profile } from "./Pages/Profile";
 import { Header } from "./Components/Header";
 import { Search } from "./Components/Search";
+import { RequiresAuth } from "./Utils/RequiresAuth";
 // Call make Server
 makeServer();
 
@@ -28,9 +29,9 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/user/:username" element={<User />} />
-                  <Route path="/selected" element={<Selected />} />
-                  <Route path="/bookmarks" element={<Bookmark />} />
-                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/selected" element={<RequiresAuth><Selected /></RequiresAuth>} />
+                  <Route path="/bookmarks" element={<RequiresAuth><Bookmark /></RequiresAuth>} />
+                  <Route path="/profile" element={<RequiresAuth><Profile /></RequiresAuth>} />
                 </Routes>
                 <Search/>
               </div>
