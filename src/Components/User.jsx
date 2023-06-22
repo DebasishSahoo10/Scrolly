@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import { useNavigate, useParams } from "react-router";
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
-
+import { Nav } from "./Nav";
+import HomeStyles from "../Pages/Home.module.css";
+import UserStyles from "./User.module.css";
+import { DataContext } from "../Contexts/DataContext";
+import { PostComponent } from "./PostComponent";
 // eslint-disable-next-line react/prop-types
 export const User = () => {
   const navigate = useNavigate();
@@ -12,7 +15,7 @@ export const User = () => {
   const { username } = useParams();
   const { userState, userDispatch } = useContext(UserContext);
   const { auth } = useContext(AuthContext);
-  console.log(userState.allUsers)
+  const {state} = useContext(DataContext)
   const selectedUser = userState.allUsers.find(
     (user) => user.username === username
   );
@@ -31,9 +34,18 @@ export const User = () => {
             },
           });
           const returnedUsersData = await serverCall.json();
-          userDispatch({type : "UPDATE_ALL_USER", payload : returnedUsersData.followUser})
-          userDispatch({type : "UPDATE_CURRENT_USER", payload : returnedUsersData.user})
-          userDispatch({type : "UPDATE_FOLLOWING", payload : returnedUsersData.followUser.username})
+          userDispatch({
+            type: "UPDATE_ALL_USER",
+            payload: returnedUsersData.followUser,
+          });
+          userDispatch({
+            type: "UPDATE_CURRENT_USER",
+            payload: returnedUsersData.user,
+          });
+          userDispatch({
+            type: "UPDATE_FOLLOWING",
+            payload: returnedUsersData.followUser.username,
+          });
           setIsFollow(true);
         } catch (err) {
           console.error(err);
@@ -49,8 +61,14 @@ export const User = () => {
             },
           });
           const returnedUsersData = await serverCall.json();
-          userDispatch({type : "UPDATE_ALL_USER", payload : returnedUsersData.followUser})
-          userDispatch({type : "UPDATE_CURRENT_USER", payload : returnedUsersData.user})
+          userDispatch({
+            type: "UPDATE_ALL_USER",
+            payload: returnedUsersData.followUser,
+          });
+          userDispatch({
+            type: "UPDATE_CURRENT_USER",
+            payload: returnedUsersData.user,
+          });
           setIsFollow(false);
         } catch (err) {
           console.error(err);
@@ -59,15 +77,30 @@ export const User = () => {
     }
   };
   return (
-    <>
-      <NavLink to="/">Home</NavLink>
-      <p>
-        {selectedUser.firstName} {selectedUser.lastName}
-      </p>
-      <p>{selectedUser.username}</p>
-      <button onClick={() => handleFollow(selectedUser._id)}>
-        {isFollow ? "Unfollow" : "Follow"}
-      </button>
-    </>
+    <div className={HomeStyles.home}>
+      <Nav />
+      <div className={UserStyles.user}>
+        <img src={selectedUser.img} alt="" width={80} height={80} />
+        <h2>{selectedUser.username}</h2>
+        <p>
+          {selectedUser.firstName} {selectedUser.lastName}
+        </p>
+        <p>
+          <i>{selectedUser.bio}</i>
+        </p>
+        <button onClick={() => handleFollow(selectedUser._id)}>
+          {isFollow ? "Unfollow" : "Follow"}
+        </button>
+      </div>
+      <ul className={UserStyles.user}>
+        {state.posts.filter(post => post.username===selectedUser.username).map(post => {
+          return (
+            <li key={post._id} style={{ listStyle: "none" }}>
+              <PostComponent post={post} />
+            </li>
+          )
+        })}
+      </ul>
+    </div>
   );
 };

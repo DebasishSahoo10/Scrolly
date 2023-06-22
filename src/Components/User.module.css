@@ -1,0 +1,26 @@
+.user {
+    margin-top: 50px;
+    border: 2px dashed #A5A735;
+    width: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Recursive', sans-serif;
+    padding: 20px;
+}
+.user h2, p {
+    margin-bottom: 0;
+}
+.user button {
+    width: 90%;
+    background: transparent;
+    border: 1px dashed #A5A735;
+    color: white;
+    font-family: 'Recursive', sans-serif;
+    font-size: large;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
