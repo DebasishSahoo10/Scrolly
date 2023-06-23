@@ -2,13 +2,11 @@
 
 body {
   width: 99.8%;
-  min-height: 100vh;
   background-color: black;
   margin: 0;
   border: 1px solid #A5A735;
   border-bottom: 0px;
 }
-
 h1, h2, p, h3 {
   color: white;
 }
@@ -57,4 +55,5 @@ body::-webkit-scrollbar-thumb
 h2 {
   font-family: "Recursive", sans-serif;
   align-self: center;
+  text-align: center;
 }

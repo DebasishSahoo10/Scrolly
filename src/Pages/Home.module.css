@@ -11,6 +11,7 @@
 }
 .home {
     display: flex;
+    height: 90vh;
     flex-direction: column;
     width: 80%;
     align-items: center;
@@ -25,4 +26,9 @@
     position: absolute;
     bottom: 12%;
     right: 8%;
+}
+@media screen and (max-width : 920px) {
+    .postlists {
+        width: 85%;
+    }
 }

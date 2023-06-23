@@ -7,7 +7,7 @@
     gap: 15px;
 }
 .newField input {
-    width: 300px;
+    width: 50%;
     height: 60px;
     border: 2px dashed #A5A735;
     border-radius: 8px;
@@ -25,5 +25,33 @@
     border: 2px dashed #A5A735;
     color: white;
     border-radius: 8px;
-    width: 120px;
+    width: 15%;
 }
+@media screen and (max-width : 1213px) {
+    .newField button {
+        font-size: medium;
+    }
+}
+@media screen and (max-width : 1049px) {
+    .newField button {
+        font-size: small;
+    }
+    .newField {
+        gap: 5px;
+    }
+}
+/* @media screen and (max-width : 889px) {
+    .newField {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .newField input {
+        width: 90%;
+        height: 40px;
+    }
+    .newField button {
+        width: 93%;
+        height: 40px;
+
+    }
+} */

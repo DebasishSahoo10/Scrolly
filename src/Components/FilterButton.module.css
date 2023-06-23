@@ -13,3 +13,8 @@
     border: 0;
     font-family: 'Recursive', sans-serif;
 }
+@media screen and (max-width : 920px) {
+    .buttoncontainer {
+        width: 85%;
+    }
+}
