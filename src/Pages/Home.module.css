@@ -15,7 +15,6 @@
     flex-direction: column;
     width: 80%;
     align-items: center;
-    /* justify-content: center; */
     gap: 20px;
     position: relative;
     padding-bottom: 20px;
@@ -27,8 +26,16 @@
     bottom: 12%;
     right: 8%;
 }
-@media screen and (max-width : 920px) {
+@media screen and (max-width : 1195px) {
     .postlists {
         width: 85%;
+    }
+    .addButton {
+        right: 5px;
+    }
+}
+@media screen and (max-width : 994px) {
+    .postlists {
+        width: 95%;
     }
 }
