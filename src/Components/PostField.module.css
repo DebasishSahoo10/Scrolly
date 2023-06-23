@@ -17,7 +17,7 @@
     padding: 5px;
     font-size: medium;
 }
-.newField button {
+.newField button  {
     height: 75px;
     font-family: 'Recursive', sans-serif;
     font-size: large;
@@ -27,6 +27,24 @@
     border-radius: 8px;
     width: 15%;
 }
+.newField p {
+    height: 70px;
+    font-family: 'Recursive', sans-serif;
+    font-size: medium;
+    background-color: transparent;
+    border: 2px dashed #A5A735;
+    color: white;
+    border-radius: 8px;
+    width: 70px;
+    text-align: center;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-width : 1213px) {
     .newField button {
         font-size: medium;
