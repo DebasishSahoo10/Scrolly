@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
+import RadialBlue from "../../assets/Radial-Blue.webp"
 // import dayjs from "dayjs";
 
 /**
@@ -8,6 +9,20 @@ import { formatDate } from "../utils/authUtils";
  * */
 
 export const posts = [
+  {
+    _id: uuid(),
+    img : RadialBlue,
+    content:
+      "Here is test sample of what a user can write as the post caption ",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "de.3.ev",
+    createdAt: new Date("2023-05-10"),
+    updatedAt: formatDate(),
+  },
   {
     _id: uuid(),
     content:

@@ -10,10 +10,10 @@ import Bookmark from "../assets/Bookmark.png";
 import Bookmarked from "../assets/Bookmarked.png";
 import Like from "../assets/Like.png";
 import Liked from "../assets/Liked.png";
-import Remove from "../assets/Remove.png"
-import Share from "../assets/Share.png"
-import Edit from "../assets/Edit.png"
-import Comment from "../assets/Comment.png"
+import Remove from "../assets/Remove.png";
+import Share from "../assets/Share.png";
+import Edit from "../assets/Edit.png";
+import Comment from "../assets/Comment.png";
 
 export const PostComponent = ({ post }) => {
   const navigate = useNavigate();
@@ -108,8 +108,8 @@ export const PostComponent = ({ post }) => {
     (user) => user.username === post.username
   );
   return (
-    <div className={PostComponentStyles.postcontainer}>
-      <div className={PostComponentStyles.usernameButton}>
+    <div className={post.img ? PostComponentStyles.imgPost : PostComponentStyles.postcontainer}>
+      <div className={post.img ? PostComponentStyles.imgUsernameButton : PostComponentStyles.usernameButton}>
         <div className={PostComponentStyles.username}>
           <img src={user.img} alt="" width={35} height={35} />
           <div>
@@ -127,16 +127,28 @@ export const PostComponent = ({ post }) => {
             width={25}
             height={25}
           />
-          
+
           {post.username === userState.currentUser.username ? (
             <>
-              <img src={Remove} alt="" onClick={() => handleDelete(post._id)} width={25} height={25}/>
-              <img src={Edit} alt="" onClick={() => handleEdit(post.content, post._id)} width={21} height={21}/>
+              <img
+                src={Remove}
+                alt=""
+                onClick={() => handleDelete(post._id)}
+                width={25}
+                height={25}
+              />
+              <img
+                src={Edit}
+                alt=""
+                onClick={() => handleEdit(post.content, post._id)}
+                width={21}
+                height={21}
+              />
             </>
           ) : (
             <>
-              <img src={Comment} alt="" width={25} height={25}/>
-              <img src={Share} alt="" width={25} height={25}/>
+              <img src={Comment} alt="" width={25} height={25} />
+              <img src={Share} alt="" width={25} height={25} />
             </>
           )}
           <img
@@ -148,7 +160,13 @@ export const PostComponent = ({ post }) => {
           />
         </div>
       </div>
-      <p className={PostComponentStyles.content}>{post.content}</p>
+      <div>
+        <p className={PostComponentStyles.content}>{post.content}</p>
+        {post.img && <img src={post.img} alt="" width={380} height={300}/>}
+      </div>
+      {/* {post.img && <div className={PostComponentStyles.gridLines}>
+        <img src={GridLines} alt="" />
+      </div>} */}
     </div>
   );
 };
