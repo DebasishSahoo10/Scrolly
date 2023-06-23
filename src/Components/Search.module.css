@@ -19,6 +19,7 @@
     background-color:  #DADADA;
     font-family: 'Recursive', sans-serif;
     padding-left: 10px;
+    margin-top: 10px;
 }
 .username {
     display: flex;

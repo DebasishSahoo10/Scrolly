@@ -18,40 +18,8 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],
-    following: [
-      {
-        _id: uuid(),
-        firstName: "Debasish",
-        lastName: "Sahoo",
-        username: "de.3.ev",
-      },
-      {
-        _id: uuid(),
-        firstName: "Subhasmita",
-        lastName: "Rout",
-        username: "thehope_",
-      },
-    ],
-    followers: [
-      {
-        _id: uuid(),
-        firstName: "Debasish",
-        lastName: "Sahoo",
-        username: "de.3.ev",
-      },
-      {
-        _id: uuid(),
-        firstName: "Subhasmita",
-        lastName: "Rout",
-        username: "thehope_",
-      },
-      {
-        _id: uuid(),
-        firstName: "Abhisek",
-        lastName: "Mohanty",
-        username: "7000rpm",
-      },
-    ],
+    following: [],
+    followers: [],
   },
   {
     _id: uuid(),

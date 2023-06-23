@@ -10,11 +10,12 @@ import { DataContext } from "../Contexts/DataContext";
 import { PostComponent } from "./PostComponent";
 // eslint-disable-next-line react/prop-types
 export const User = () => {
+ 
   const navigate = useNavigate();
-  const [isFollow, setIsFollow] = useState(false);
   const { username } = useParams();
   const { userState, userDispatch } = useContext(UserContext);
   const { auth } = useContext(AuthContext);
+  const [isFollow, setIsFollow] = useState(userState?.currentUser?.following?.some(user => user.username===username) ?? false)
   const {state} = useContext(DataContext)
   const selectedUser = userState.allUsers.find(
     (user) => user.username === username
@@ -46,7 +47,7 @@ export const User = () => {
             type: "UPDATE_FOLLOWING",
             payload: returnedUsersData.followUser.username,
           });
-          setIsFollow(true);
+          setIsFollow(true)
         } catch (err) {
           console.error(err);
         }
@@ -61,6 +62,7 @@ export const User = () => {
             },
           });
           const returnedUsersData = await serverCall.json();
+          console.log(returnedUsersData)
           userDispatch({
             type: "UPDATE_ALL_USER",
             payload: returnedUsersData.followUser,
@@ -69,7 +71,11 @@ export const User = () => {
             type: "UPDATE_CURRENT_USER",
             payload: returnedUsersData.user,
           });
-          setIsFollow(false);
+          userDispatch({
+            type: "OUTDATE_FOLLOWING",
+            payload: returnedUsersData.followUser.username,
+          });
+          setIsFollow(false)
         } catch (err) {
           console.error(err);
         }

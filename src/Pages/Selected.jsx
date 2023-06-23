@@ -23,8 +23,8 @@ export const Selected = () => {
   return (
     <div className={HomeStyles.home}>
       <Nav />
-      <FilterButton sortState={sortFilter} sortFunc={setSortFilter} />
-      <ul className={HomeStyles.postlists}>
+      {filteredState.length > 0 && <FilterButton sortState={sortFilter} sortFunc={setSortFilter} />}
+      {filteredState.length > 0 ? <ul className={HomeStyles.postlists}>
         {filteredState.map((post) => {
           return (
             <li key={post._id} style={{ listStyle: "none" }}>
@@ -32,7 +32,7 @@ export const Selected = () => {
             </li>
           );
         })}
-      </ul>
+      </ul> : <h2>Follow Someone First 😶‍🌫️</h2> }
     </div>
   );
 };
