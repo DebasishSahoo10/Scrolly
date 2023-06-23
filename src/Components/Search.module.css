@@ -40,3 +40,8 @@
     flex-direction: column-reverse;
     gap: 10px;
 }
+@media screen and (max-width : 890px) {
+    .search {
+        display: none;
+    }
+}

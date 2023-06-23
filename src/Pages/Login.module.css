@@ -38,3 +38,9 @@
   font-size: 16px;
   margin-top: 10px;
 }
+@media screen and (max-width : 890px) {
+  .login {
+    width: 100%;
+    min-height: 100vh;
+  }
+}

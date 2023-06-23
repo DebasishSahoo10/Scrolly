@@ -39,3 +39,8 @@
         width: 95%;
     }
 }
+@media screen and (max-width : 890px) {
+    .home {
+        width: 100%;
+    }
+}
