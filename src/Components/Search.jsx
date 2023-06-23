@@ -6,7 +6,7 @@ import { useState } from "react";
 export const Search = () => {
   const { userState } = useContext(UserContext);
   const [searchQuery, setSearchQuery] = useState("")
-  const filteredUser = userState.allUsers.filter(user => user.username.includes(searchQuery))
+  const filteredUser = userState.allUsers.filter(user => user.username!==userState.currentUser.username && user.username.includes(searchQuery))
   return (
     <div className={SearchStyles.search}>
       <div>

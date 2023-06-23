@@ -57,3 +57,29 @@ h2 {
   align-self: center;
   text-align: center;
 }
+dialog {
+  background-color: #A5A735;
+  font-family: "Recursive", sans-serif;
+  position: absolute;
+  top: 35%;
+  height: 280px;
+  border-radius: 20px;
+  min-width: 380px;
+}
+dialog button {
+  font-family: "Recursive", sans-serif;
+  font-size: large;
+  background-color: transparent;
+  border: 2px dashed white;
+  color: white; 
+  padding: 10px 20px;
+}
+dialog input {
+  height: 50px;
+  width: 100%;
+  border-radius: 8px;
+  border: 0px;
+  font-size: medium;
+  font-family: "Recursive", sans-serif;
+  padding-left: 10px;
+}

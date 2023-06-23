@@ -48,7 +48,7 @@ export const Profile = () => {
     })();
     setDialogOpen((prev) => ({ ...prev, avatar: false }));
   };
-
+  console.log(dialogOpen.avatar);
   return (
     <div className={HomeStyles.home}>
       <Nav />
@@ -57,9 +57,10 @@ export const Profile = () => {
         <h2 style={{ marginBottom: "0px" }}>
           {userState.currentUser.username}
         </h2>
-        <p style={{fontFamily: "Recursive, sans-serif", marginTop: "0px" }}>
+        <p style={{ fontFamily: "Recursive, sans-serif", marginTop: "0px" }}>
           {userState.currentUser.firstName} {userState.currentUser.lastName}
-        </p>s
+        </p>
+        s
       </div>
       <div className={ProfileStyles.bioContainer}>
         <p>
@@ -69,39 +70,49 @@ export const Profile = () => {
         <p>Followers : {userState.currentUser.followers.length}</p>
       </div>
       <dialog open={dialogOpen.bio}>
-        <p>Type your new Bio Here</p>
-        <input
-          type="text"
-          onChange={(e) =>
-            setChangedUser({
-              userData: { ...changedUser.userData, bio: e.target.value },
-            })
-          }
-        />
-        <button onClick={() => handleBioEdit()}>Save</button>
+        <div className={ProfileStyles.bio}>
+          <p>Type your new Bio Here</p>
+          <input
+            type="text"
+            onChange={(e) =>
+              setChangedUser({
+                userData: { ...changedUser.userData, bio: e.target.value },
+              })
+            }
+          />
+          <button onClick={() => handleBioEdit()}>Save</button>
+        </div>
       </dialog>
       <dialog open={dialogOpen.avatar}>
-        <p>Select your new Avatar here</p>
-        <ul style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
-          {Avatars.map((av) => {
-            return (
-              <li key={av} style={{ listStyle: "none" }}>
-                <img
-                  src={av}
-                  alt=""
-                  width={50}
-                  height={50}
-                  onClick={(e) =>
-                    setChangedUser({
-                      userData: { ...changedUser.userData, img: e.target.src },
-                    })
-                  }
-                />
-              </li>
-            );
-          })}
-        </ul>
-        <button onClick={() => handleAvatarEdit()}>Save</button>
+        <div className={ProfileStyles.avatar}>
+          <p>Select your new Avatar here</p>
+          <ul style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
+            {Avatars.map((av) => {
+              return (
+                <li key={av} style={{ listStyle: "none" }}>
+                  <img
+                    src={av}
+                    alt=""
+                    width={50}
+                    height={50}
+                    onClick={(e) =>
+                      setChangedUser({
+                        userData: {
+                          ...changedUser.userData,
+                          img: e.target.src,
+                        },
+                      })
+                    }
+                  />
+                  {changedUser.userData.img === av && (
+                    <div className={ProfileStyles.identifier}></div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+          <button onClick={() => handleAvatarEdit()}>Save</button>
+        </div>
       </dialog>
       <div className={ProfileStyles.buttonContainer}>
         <button

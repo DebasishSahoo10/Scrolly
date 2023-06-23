@@ -33,3 +33,24 @@
     align-items: center;
     margin-top: 50px;
 }
+.identifier {
+  height: 2px;
+  color: antiquewhite;
+  width: 100%;
+  background-color: antiquewhite;
+}
+.avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+}
