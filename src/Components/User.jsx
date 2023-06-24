@@ -98,7 +98,7 @@ export const User = () => {
           {isFollow ? "Unfollow" : "Follow"}
         </button>
       </div>
-      <ul className={UserStyles.user}>
+      <ul className={HomeStyles.postlists}>
         {state.posts.filter(post => post.username===selectedUser.username).map(post => {
           return (
             <li key={post._id} style={{ listStyle: "none" }}>

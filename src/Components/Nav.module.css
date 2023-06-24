@@ -13,3 +13,8 @@
 .activelink {
     color:  red;
 }
+@media screen and (max-width : 455px) {
+    .navcontainer {
+        margin-left: 0px;
+    }
+}

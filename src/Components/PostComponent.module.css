@@ -69,3 +69,50 @@
     gap: 10px;
     margin-top: 20px;
 }
+@media screen and (max-width : 641px) {
+    .postcontainer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .imgPost {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: 100% 40%;
+    }
+    .content {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .usernameButton {
+        gap: 20px;
+    }
+    .imgUsernameButton {
+        gap: 20px;
+    }
+    .buttons {
+        gap:  40px;
+    }
+}
+@media screen and (max-width : 455px) {
+    .content {
+        text-align: left;
+    }
+    .usernameButton {
+        min-width: 100%;
+    }
+    .imgUsernameButton {
+        min-width: 100%;
+    }
+    .buttons {
+        justify-content: space-between;
+    }
+    .buttons img {
+        width: 30px;
+        height: 32px;
+    }
+}

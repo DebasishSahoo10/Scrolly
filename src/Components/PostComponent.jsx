@@ -108,8 +108,20 @@ export const PostComponent = ({ post }) => {
     (user) => user.username === post.username
   );
   return (
-    <div className={post.img ? PostComponentStyles.imgPost : PostComponentStyles.postcontainer}>
-      <div className={post.img ? PostComponentStyles.imgUsernameButton : PostComponentStyles.usernameButton}>
+    <div
+      className={
+        post.img
+          ? PostComponentStyles.imgPost
+          : PostComponentStyles.postcontainer
+      }
+    >
+      <div
+        className={
+          post.img
+            ? PostComponentStyles.imgUsernameButton
+            : PostComponentStyles.usernameButton
+        }
+      >
         <div className={PostComponentStyles.username}>
           <img src={user.img} alt="" width={35} height={35} />
           <div>
@@ -160,13 +172,19 @@ export const PostComponent = ({ post }) => {
           />
         </div>
       </div>
-      <div>
-        <p className={PostComponentStyles.content}>{post.content}</p>
-        {post.img && <img src={post.img} alt="" width={380} height={300}/>}
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div className={PostComponentStyles.content}>
+          <p>{post.content}</p>
+        </div>
+        {post.img && <img src={post.img} alt="" width={380} height={300} />}
       </div>
-      {/* {post.img && <div className={PostComponentStyles.gridLines}>
-        <img src={GridLines} alt="" />
-      </div>} */}
     </div>
   );
 };
