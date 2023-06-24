@@ -29,11 +29,35 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/user/:username" element={<User />} />
-                  <Route path="/selected" element={<RequiresAuth><Selected /></RequiresAuth>} />
-                  <Route path="/bookmarks" element={<RequiresAuth><Bookmark /></RequiresAuth>} />
-                  <Route path="/profile" element={<RequiresAuth><Profile /></RequiresAuth>} />
+                  <Route
+                    path="/selected"
+                    element={
+                      <RequiresAuth>
+                        <Selected />
+                      </RequiresAuth>
+                    }
+                  />
+                  <Route
+                    path="/bookmarks"
+                    element={
+                      <RequiresAuth>
+                        <Bookmark />
+                      </RequiresAuth>
+                    }
+                  />
+                  <Route
+                    path="/profile"
+                    element={
+                      <RequiresAuth>
+                        <Profile />
+                      </RequiresAuth>
+                    }
+                  />
+                  <Route path="/search" element={<Search />} />
                 </Routes>
-                <Search/>
+                <div className="searchContainer">
+                  <Search />
+                </div>
               </div>
             </UserProvider>
           </DataProvider>
