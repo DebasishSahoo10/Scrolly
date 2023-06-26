@@ -25,6 +25,9 @@
   background-repeat: no-repeat;
   background-size: 100% 60%;
 }
+img {
+    object-fit: cover;
+}
 .imgAndPost {
   width: 100%;
   display: flex;
