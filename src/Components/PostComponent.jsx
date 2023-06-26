@@ -12,7 +12,7 @@ import Like from "../assets/Like.png";
 import Liked from "../assets/Liked.png";
 import Remove from "../assets/Remove.png";
 import Share from "../assets/Share.png";
-import Edit from "../assets/Edit.png";
+import Edit from "../assets/Edit.png"
 import Comment from "../assets/Comment.png";
 
 export const PostComponent = ({ post }) => {
@@ -155,6 +155,7 @@ export const PostComponent = ({ post }) => {
                 onClick={() => handleEdit(post.content, post._id)}
                 width={21}
                 height={21}
+                className={PostComponentStyles.editIcon}
               />
             </>
           ) : (

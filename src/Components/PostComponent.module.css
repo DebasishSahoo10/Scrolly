@@ -125,9 +125,13 @@ img {
   .buttons {
     justify-content: space-between;
   }
-  .buttons img {
-    width: 30px;
+  .buttons img:not(.editIcon) {
+    width: 29px;
     height: 32px;
+  }
+  .editIcon {
+    width: 28px;
+    height: 28px;
   }
   .imgAndPost {
     align-items: center;
