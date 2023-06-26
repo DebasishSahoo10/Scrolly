@@ -25,7 +25,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 .login button {
   width: 310px;
@@ -42,5 +41,10 @@
   .login {
     width: 100%;
     min-height: 100vh;
+  }
+}
+@media screen and (max-width : 500px) {
+  .login {
+    margin-top: 50px;
   }
 }
