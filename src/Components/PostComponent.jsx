@@ -66,6 +66,7 @@ export const PostComponent = ({ post }) => {
     dispatch({ type: "POSTFIELD_TRUE" });
     dispatch({ type: "EDIT_POST", payload: postContent });
     dispatch({ type: "EDIT_ID", payload: postID });
+    navigate("/")
   };
   const handleDelete = (postID) => {
     (async () => {
