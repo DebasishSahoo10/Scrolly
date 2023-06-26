@@ -47,4 +47,10 @@
   .login {
     margin-top: 50px;
   }
+  .login input {
+    width: 70%;
+  }
+  .login button {
+    width: 73%;
+  }
 }

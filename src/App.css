@@ -13,11 +13,6 @@ body {
 h1, h2, p, h3 {
   color: white;
 }
-
-button {
-  margin-left: 5px;
-  margin-top: 5px;
-}
 .app-layout {
   width: 95%;
   display: flex;

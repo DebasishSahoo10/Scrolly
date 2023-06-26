@@ -12,12 +12,12 @@ const Login = () => {
   const navigate = useNavigate()
   const [login, setLogin] = useState({ username: "", password: "" });
   const [error, setError] = useState(false)
-  const handleLogin = () => {
+  const handleLogin = (testLogin) => {
     (async () => {
       try {
         const serverCall = await fetch("/api/auth/login", {
           method: "POST",
-          body: JSON.stringify(login),
+          body: testLogin ? JSON.stringify({ username: "thetester_", password: "thetester" }) : JSON.stringify(login),
         });
         const token = await serverCall.json();
         console.log(token);
@@ -62,7 +62,8 @@ const Login = () => {
               setLogin((prev) => ({ ...prev, password: e.target.value }))
             }
           />
-          <button onClick={() => handleLogin()}>Login</button>
+          <button onClick={() => handleLogin(false)}>Login</button>
+          <button onClick={()=>handleLogin(true)}>LogIn with Test Credentials</button>
         </>
       ) : (
         <>
