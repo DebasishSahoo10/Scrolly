@@ -13,7 +13,11 @@ export const Profile = () => {
   const [changedUser, setChangedUser] = useState({
     userData: userState.currentUser,
   });
-  const { auth } = useContext(AuthContext);
+  const { auth, authDispatch } = useContext(AuthContext);
+  const handleLogout = () => {
+    authDispatch({ type: "SET_LOGOUT" });
+    userDispatch({ type: "SET_CURRENT_USER", payload: {} });
+  };
 
   const handleBioEdit = () => {
     (async () => {
@@ -125,6 +129,7 @@ export const Profile = () => {
         >
           Change Bio
         </button>
+        <button onClick={() => handleLogout()}>Log Out</button>
       </div>
     </div>
   );

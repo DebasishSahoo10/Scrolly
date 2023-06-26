@@ -43,9 +43,14 @@
 .smallNav p {
     font-size: 18px;
 }
-
+.ResLoginlink {
+    display: none;
+}
 
 @media screen and (max-width : 500px) {
+    .ResLoginlink {
+        display: block;
+    }
     .loginlink {
         display: none;
     }

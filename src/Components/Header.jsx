@@ -34,6 +34,9 @@ export const Header = () => {
       <NavLink to="/login" className={HeaderStyles.loginlink}>
         {auth.length === 0 ? "LogIn" : "LogOut"}
       </NavLink>
+      <NavLink to="/login" className={HeaderStyles.ResLoginlink} style={{display :auth.length > 0 && "none" }}>
+        LogIn
+      </NavLink>
     </div>
   );
 };
