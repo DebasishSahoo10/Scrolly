@@ -21,6 +21,7 @@ export const ResponsiveNav = () => {
           return;
         }
         dispatch({ type: "POSTFIELD_TRUE" });
+        navigate("/")
       };
   return (
     <div className={NavStyles.ResNavButtons}>
