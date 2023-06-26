@@ -173,12 +173,7 @@ export const PostComponent = ({ post }) => {
         </div>
       </div>
       <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
+        className={PostComponentStyles.imgAndPost}
       >
         <div className={PostComponentStyles.content}>
           <p>{post.content}</p>
