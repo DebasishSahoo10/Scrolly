@@ -124,7 +124,7 @@ export const PostComponent = ({ post }) => {
         }
       >
         <div className={PostComponentStyles.username}>
-          <img src={user.img} alt="" width={35} height={35} />
+          <img src={user.img} alt="" width={35} height={35} className={PostComponentStyles.userImg}/>
           <div>
             <NavLink to={`/user/${post.username}`}>
               <h3>{post.username}</h3>

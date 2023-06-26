@@ -24,7 +24,7 @@
   background-repeat: no-repeat;
   background-size: 100% 60%;
 }
-img {
+img:not(.userImg) {
   object-fit: cover;
 }
 .imgAndPost {
