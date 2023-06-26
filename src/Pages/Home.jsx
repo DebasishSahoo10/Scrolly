@@ -10,7 +10,6 @@ import { FilterButton } from "../Components/FilterButton";
 import HomeStyles from "./Home.module.css";
 import Add from "../assets/Add.png";
 import Search from "../assets/Search.png"
-import { ResponsiveNav } from "../Components/ResponsiveNav";
 
 const Home = () => {
   const [sortFilter, setSortFilter] = useState("Trending");
@@ -61,7 +60,6 @@ const Home = () => {
           );
         })}
       </ul>
-      <ResponsiveNav/>
     </div>
   );
 };

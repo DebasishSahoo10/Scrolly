@@ -94,7 +94,7 @@ export const User = () => {
         <p>
           <i>{selectedUser.bio}</i>
         </p>
-        <button onClick={() => handleFollow(selectedUser._id)}>
+        <button onClick={() => handleFollow(selectedUser._id)} style={{display : selectedUser.username===userState.currentUser.username && "none"}}>
           {isFollow ? "Unfollow" : "Follow"}
         </button>
       </div>

@@ -13,6 +13,7 @@ import { Profile } from "./Pages/Profile";
 import { Header } from "./Components/Header";
 import { Search } from "./Components/Search";
 import { RequiresAuth } from "./Utils/RequiresAuth";
+import { ResponsiveNav } from "./Components/ResponsiveNav";
 // Call make Server
 makeServer();
 
@@ -58,6 +59,7 @@ function App() {
                 <div className="searchContainer">
                   <Search />
                 </div>
+                <ResponsiveNav/>
               </div>
             </UserProvider>
           </DataProvider>

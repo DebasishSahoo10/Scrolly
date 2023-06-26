@@ -45,3 +45,9 @@
         border: 0px;
     }
 }
+@media screen and (max-width : 500px) {
+    .search {
+        padding: 0;
+        margin-left: 5px;
+    }
+}
