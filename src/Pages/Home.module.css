@@ -61,4 +61,7 @@
     .home {
         margin-top: 0px;
     }
+    .addButton {
+        display: none;
+    }
 }

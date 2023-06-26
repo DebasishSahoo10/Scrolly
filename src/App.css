@@ -106,4 +106,7 @@ dialog input {
   body {
     border: 0px;
   }
+  .app-layout {
+    min-height: 2500px;
+  }
 }
