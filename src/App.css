@@ -102,7 +102,7 @@ dialog input {
     min-height: 2000px;
   }
 }
-@media screen and (max-width : 455px) {
+@media screen and (max-width : 500px) {
   body {
     border: 0px;
   }
