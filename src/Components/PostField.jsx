@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../Contexts/DataContext";
 import { AuthContext } from "../Contexts/AuthContext";
@@ -5,7 +6,7 @@ import PostFieldStyles from "./PostField.module.css";
 import { UserContext } from "../Contexts/UserContext";
 import { useRef } from "react";
 
-export const PostField = () => {
+export const PostField = ({sortFunc}) => {
   const { state, dispatch } = useContext(DataContext);
   const { userState } = useContext(UserContext);
   const { auth } = useContext(AuthContext);
@@ -66,6 +67,7 @@ export const PostField = () => {
       }
     })();
     dispatch({ type: "POSTFIELD_FALSE" });
+    sortFunc("Newest")
   };
   return (
     <div className={PostFieldStyles.newField}>

@@ -51,7 +51,7 @@ const Home = () => {
           width={60} className={HomeStyles.searchBtn} onClick={()=>navigate("/search")}/>
       </div>
       <ul className={HomeStyles.postlists}>
-        {state.newPostField && <PostField className={HomeStyles.newPostField}/>}
+        {state.newPostField && <PostField className={HomeStyles.newPostField} sortFunc={setSortFilter}/>}
         {filteredState.map((post) => {
           return (
             <li key={post._id} style={{ listStyle: "none" }}>
