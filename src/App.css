@@ -102,3 +102,8 @@ dialog input {
     min-height: 2000px;
   }
 }
+@media screen and (max-width : 455px) {
+  body {
+    border: 0px;
+  }
+}

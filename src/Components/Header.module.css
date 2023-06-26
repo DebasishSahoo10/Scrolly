@@ -38,7 +38,10 @@
     text-decoration: none;
     color: #ffffff;
     font-family: 'Recursive', sans-serif;
-    font-size: 25px;
+    font-size: 25px; 
+}
+.smallNav p {
+    font-size: 18px;
 }
 
 
@@ -55,3 +58,4 @@
     }
     
 }
+

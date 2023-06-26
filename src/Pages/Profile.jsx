@@ -129,3 +129,4 @@ export const Profile = () => {
     </div>
   );
 };
+//// Add Logout option here
