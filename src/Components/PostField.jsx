@@ -5,7 +5,8 @@ import { AuthContext } from "../Contexts/AuthContext";
 import PostFieldStyles from "./PostField.module.css";
 import { UserContext } from "../Contexts/UserContext";
 import { useRef } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const PostField = ({sortFunc}) => {
   const { state, dispatch } = useContext(DataContext);
   const { userState } = useContext(UserContext);
@@ -32,6 +33,16 @@ export const PostField = ({sortFunc}) => {
   const handleUpload = () => {
     if(input.postData.content.length===0) {
       // Toast Error here
+      toast("A Blank Post. Why ⚠️", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+      })
       return;
     }
     if (state.editingPost) {

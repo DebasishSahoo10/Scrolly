@@ -66,6 +66,7 @@
     .newField input {
         width: 90%;
         height: 40px;
+        text-align: center;
     }
     .newField button {
         width: 93%;

@@ -14,6 +14,8 @@ import Remove from "../assets/Remove.png";
 import Share from "../assets/Share.png";
 import Edit from "../assets/Edit.png";
 import Comment from "../assets/Comment.png";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const PostComponent = ({ post }) => {
   const navigate = useNavigate();
@@ -168,8 +170,42 @@ export const PostComponent = ({ post }) => {
             </>
           ) : (
             <>
-              <img src={Comment} alt="" width={25} height={25} />
-              <img src={Share} alt="" width={25} height={25} />
+              <img
+                src={Comment}
+                alt=""
+                width={25}
+                height={25}
+                onClick={() =>
+                  toast("This Feature Coming Soon 🔜", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                  })
+                }
+              />
+              <img
+                src={Share}
+                alt=""
+                width={25}
+                height={25}
+                onClick={() =>
+                  toast("This Feature Coming Soon 🔜", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                  })
+                }
+              />
             </>
           )}
           <img
