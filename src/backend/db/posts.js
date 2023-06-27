@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 import RadialBlue from "../../assets/Radial-Blue.webp"
-import LadyInAir from "../../assets/LadyInAIr.webp"
+import LadyInAir from "../../assets/LadyInAir.webp"
 // import dayjs from "dayjs";
 
 /**
