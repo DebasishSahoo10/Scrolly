@@ -12,7 +12,7 @@ import Like from "../assets/Like.png";
 import Liked from "../assets/Liked.png";
 import Remove from "../assets/Remove.png";
 import Share from "../assets/Share.png";
-import Edit from "../assets/Edit.png"
+import Edit from "../assets/Edit.png";
 import Comment from "../assets/Comment.png";
 
 export const PostComponent = ({ post }) => {
@@ -66,7 +66,7 @@ export const PostComponent = ({ post }) => {
     dispatch({ type: "POSTFIELD_TRUE" });
     dispatch({ type: "EDIT_POST", payload: postContent });
     dispatch({ type: "EDIT_ID", payload: postID });
-    navigate("/")
+    navigate("/");
   };
   const handleDelete = (postID) => {
     (async () => {
@@ -123,15 +123,22 @@ export const PostComponent = ({ post }) => {
             : PostComponentStyles.usernameButton
         }
       >
-        <div className={PostComponentStyles.username}>
-          <img src={user.img} alt="" width={35} height={35} className={PostComponentStyles.userImg}/>
-          <div>
-            <NavLink to={`/user/${post.username}`}>
+        <NavLink to={`/user/${post.username}`}>
+          <div className={PostComponentStyles.username}>
+            <img
+              src={user.img}
+              alt=""
+              width={35}
+              height={35}
+              className={PostComponentStyles.userImg}
+            />
+            <div>
               <h3>{post.username}</h3>
-            </NavLink>
-            <p className={PostComponentStyles.smalltext}>30 Min Ago</p>
+              <p className={PostComponentStyles.smalltext}>30 Min Ago</p>
+            </div>
           </div>
-        </div>
+        </NavLink>
+
         <div className={PostComponentStyles.buttons}>
           <img
             src={post.likes.likeCount === 0 ? Like : Liked}
@@ -174,9 +181,7 @@ export const PostComponent = ({ post }) => {
           />
         </div>
       </div>
-      <div
-        className={PostComponentStyles.imgAndPost}
-      >
+      <div className={PostComponentStyles.imgAndPost}>
         <div className={PostComponentStyles.content}>
           <p>{post.content}</p>
         </div>
