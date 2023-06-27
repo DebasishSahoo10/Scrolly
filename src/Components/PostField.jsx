@@ -30,6 +30,10 @@ export const PostField = ({sortFunc}) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
   const handleUpload = () => {
+    if(input.postData.content.length===0) {
+      // Toast Error here
+      return;
+    }
     if (state.editingPost) {
       const editPostCall = async () => {
         try {
@@ -80,8 +84,8 @@ export const PostField = ({sortFunc}) => {
         onChange={(e) => setInput({ postData: { content: e.target.value } })}
         placeholder="your post text goes here 📥"
       />
-      <div onClick={()=>handleInputClick()} >
-        <p>{input.postData.img ? "Image Selected 📸" : "Select Image 📷"}</p>
+      <div onClick={()=>handleInputClick()} className={PostFieldStyles.imageInput}>
+        <button>{input.postData.img ? "Image Selected 📸" : "Select Image 📷"}</button>
         <input type="file" ref={inputRef} style={{display : "none"}} onChange={(e)=>handleFileChange(e)}/>
       </div>
       <button onClick={() => handleUpload()}>Upload ✅</button>

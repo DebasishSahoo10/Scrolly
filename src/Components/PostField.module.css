@@ -58,7 +58,7 @@
         gap: 5px;
     }
 }
-/* @media screen and (max-width : 889px) {
+@media screen and (max-width : 500px) {
     .newField {
         flex-direction: column;
         min-height: auto;
@@ -70,6 +70,11 @@
     .newField button {
         width: 93%;
         height: 40px;
-
     }
-} */
+    .imageInput {
+        width: 93%;
+    }
+    .imageInput button {
+        width: 100%;
+    }
+}
