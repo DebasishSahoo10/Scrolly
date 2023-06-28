@@ -1,15 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DataContext } from "../Contexts/DataContext";
-import { useState } from "react";
-import { PostComponent } from "../Components/PostComponent";
-import { AuthContext } from "../Contexts/AuthContext";
-import { PostField } from "../Components/PostField";
-import { Nav } from "../Components/Nav";
-import { FilterButton } from "../Components/FilterButton";
+
+import { DataContext } from "../../Contexts/DataContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { PostComponent } from "../../Components/PostComponent/PostComponent";
+import { NewPostField } from "../../Components/NewPostField/NewPostField";
+import { Nav } from "../../Components/Nav/Nav";
+import { FilterButton } from "../../Components/FilterButton/FilterButton";
 import HomeStyles from "./Home.module.css";
-import Add from "../assets/Add.png";
-import Search from "../assets/Search.png"
+
+import Add from "../../assets/Add.png";
+import Search from "../../assets/Search.png"
 
 const Home = () => {
   const [sortFilter, setSortFilter] = useState("Trending");
@@ -51,7 +52,7 @@ const Home = () => {
           width={60} className={HomeStyles.searchBtn} onClick={()=>navigate("/search")}/>
       </div>
       <ul className={HomeStyles.postlists}>
-        {state.newPostField && <PostField className={HomeStyles.newPostField} sortFunc={setSortFilter}/>}
+        {state.newPostField && <NewPostField className={HomeStyles.newPostField} sortFunc={setSortFilter}/>}
         {filteredState.map((post) => {
           return (
             <li key={post._id} style={{ listStyle: "none" }}>

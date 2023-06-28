@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { UserContext } from "../Contexts/UserContext";
-import { AuthContext } from "../Contexts/AuthContext";
-import { useState } from "react";
-import { Avatars } from "../Local Database/Avatars";
-import { Nav } from "../Components/Nav";
-import HomeStyles from "./Home.module.css";
+import { useContext, useState } from "react";
+
+import { UserContext } from "../../Contexts/UserContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { Avatars } from "../../Local Database/Avatars";
+import { Nav } from "../../Components/Nav/Nav";
+import HomeStyles from "../Home/Home.module.css";
 import ProfileStyles from "./Profile.module.css";
 
 export const Profile = () => {

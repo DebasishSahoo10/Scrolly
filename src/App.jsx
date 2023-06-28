@@ -1,21 +1,23 @@
 import { makeServer } from "./server";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./Pages/Home";
+
 import { DataProvider } from "./Contexts/DataContext";
 import { AuthProvider } from "./Contexts/AuthContext";
-import Login from "./Pages/Login";
 import { UserProvider } from "./Contexts/UserContext";
-import { User } from "./Components/User";
-import { Selected } from "./Pages/Selected";
-import { Bookmark } from "./Pages/Bookmark";
-import { Profile } from "./Pages/Profile";
-import { Header } from "./Components/Header";
-import { Search } from "./Components/Search";
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import { Feed } from "./Pages/Feed/Feed";
+import { Bookmark } from "./Pages/Bookmark/Bookmark";
+import { Profile } from "./Pages/Profile/Profile";
+import { User } from "./Components/User/User";
+import { ResponsiveNav } from "./Components/ResponsiveNav/ResponsiveNav";
+import { Header } from "./Components/Header/Header";
+import { Search } from "./Components/Search/Search";
 import { RequiresAuth } from "./Utils/RequiresAuth";
-import { ResponsiveNav } from "./Components/ResponsiveNav";
+import "./App.css";
+
 // Call make Server
 makeServer();
 
@@ -36,7 +38,7 @@ function App() {
                     path="/selected"
                     element={
                       <RequiresAuth>
-                        <Selected />
+                        <Feed />
                       </RequiresAuth>
                     }
                   />

@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "../Contexts/DataContext";
-import { AuthContext } from "../Contexts/AuthContext";
-import PostFieldStyles from "./PostField.module.css";
-import { UserContext } from "../Contexts/UserContext";
-import { useRef } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export const PostField = ({sortFunc}) => {
+
+import { DataContext } from "../../Contexts/DataContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import PostFieldStyles from "./NewPostField.module.css";
+import { UserContext } from "../../Contexts/UserContext";
+
+export const NewPostField = ({sortFunc}) => {
   const { state, dispatch } = useContext(DataContext);
   const { userState } = useContext(UserContext);
   const { auth } = useContext(AuthContext);

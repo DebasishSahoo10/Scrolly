@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { AuthContext } from "../Contexts/AuthContext";
 import { useContext } from "react";
-import { DataContext } from "../Contexts/DataContext";
 import { NavLink, useNavigate } from "react-router-dom";
-import { UserContext } from "../Contexts/UserContext";
-import PostComponentStyles from "./PostComponent.module.css";
-import Bookmark from "../assets/Bookmark.png";
-import Bookmarked from "../assets/Bookmarked.png";
-import Like from "../assets/Like.png";
-import Liked from "../assets/Liked.png";
-import Remove from "../assets/Remove.png";
-import Share from "../assets/Share.png";
-import Edit from "../assets/Edit.png";
-import Comment from "../assets/Comment.png";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { AuthContext } from "../../Contexts/AuthContext";
+import { DataContext } from "../../Contexts/DataContext";
+import { UserContext } from "../../Contexts/UserContext";
+import Bookmark from "../../assets/Bookmark.png";
+import Bookmarked from "../../assets/Bookmarked.png";
+import Like from "../../assets/Like.png";
+import Liked from "../../assets/Liked.png";
+import Remove from "../../assets/Remove.png";
+import Share from "../../assets/Share.png";
+import Edit from "../../assets/Edit.png";
+import Comment from "../../assets/Comment.png";
+import PostComponentStyles from "./PostComponent.module.css";
+
 
 export const PostComponent = ({ post }) => {
   const navigate = useNavigate();

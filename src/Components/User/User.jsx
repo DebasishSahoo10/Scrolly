@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { UserContext } from "../Contexts/UserContext";
+import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { useState } from "react";
-import { AuthContext } from "../Contexts/AuthContext";
-import { Nav } from "./Nav";
-import HomeStyles from "../Pages/Home.module.css";
+
+import { UserContext } from "../../Contexts/UserContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { DataContext } from "../../Contexts/DataContext";
+import { Nav } from "../Nav/Nav";
+import { PostComponent } from "../PostComponent/PostComponent";
+import HomeStyles from "../../Pages/Home/Home.module.css";
 import UserStyles from "./User.module.css";
-import { DataContext } from "../Contexts/DataContext";
-import { PostComponent } from "./PostComponent";
 // eslint-disable-next-line react/prop-types
 export const User = () => {
  

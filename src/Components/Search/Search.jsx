@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../Contexts/UserContext";
+import { UserContext } from "../../Contexts/UserContext";
 import SearchStyles from "./Search.module.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";

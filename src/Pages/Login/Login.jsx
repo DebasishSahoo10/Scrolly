@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../Contexts/AuthContext";
-import { UserContext } from "../Contexts/UserContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { UserContext } from "../../Contexts/UserContext";
 import LoginStyles from "./Login.module.css";
 import { useLocation, useNavigate } from "react-router";
 

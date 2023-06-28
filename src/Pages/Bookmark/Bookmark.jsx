@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { DataContext } from "../Contexts/DataContext";
-import { PostComponent } from "../Components/PostComponent";
-import { Nav } from "../Components/Nav";
-import HomeStyles from "./Home.module.css";
+import { DataContext } from "../../Contexts/DataContext";
+import { PostComponent } from "../../Components/PostComponent/PostComponent";
+import { Nav } from "../../Components/Nav/Nav";
+import HomeStyles from "../Home/Home.module.css";
 
 export const Bookmark = () => {
   const { state } = useContext(DataContext);

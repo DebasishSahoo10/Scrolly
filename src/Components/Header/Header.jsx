@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { AuthContext } from "../Contexts/AuthContext";
-import { UserContext } from "../Contexts/UserContext";
 import { NavLink } from "react-router-dom";
+
+import { AuthContext } from "../../Contexts/AuthContext";
+import { UserContext } from "../../Contexts/UserContext";
 import HeaderStyles from "./Header.module.css";
 
 export const Header = () => {
