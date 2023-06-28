@@ -5,8 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { DataContext } from "../../Contexts/DataContext";
 import { AuthContext } from "../../Contexts/AuthContext";
-import PostFieldStyles from "./NewPostField.module.css";
 import { UserContext } from "../../Contexts/UserContext";
+import PostFieldStyles from "./NewPostField.module.css";
+
 
 export const NewPostField = ({sortFunc}) => {
   const { state, dispatch } = useContext(DataContext);

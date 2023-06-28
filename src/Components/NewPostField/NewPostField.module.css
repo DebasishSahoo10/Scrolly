@@ -44,6 +44,9 @@
     justify-content: center;
     align-items: center;
 }
+.imageInput button {
+    min-width: 100%;
+}
 
 @media screen and (max-width : 1213px) {
     .newField button {
@@ -74,8 +77,5 @@
     }
     .imageInput {
         width: 93%;
-    }
-    .imageInput button {
-        width: 100%;
     }
 }

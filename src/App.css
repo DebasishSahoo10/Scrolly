@@ -20,8 +20,9 @@ h1, h2, p, h3 {
   margin: 0px 10px;
   min-height: 1500px;
 }
-
-
+li {
+  list-style: none;
+}
 body::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);

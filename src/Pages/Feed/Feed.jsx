@@ -21,16 +21,16 @@ export const Feed = () => {
     <div className={HomeStyles.home}>
       <Nav />
       {filteredState.length > 0 && <FilterButton sortState={sortFilter} sortFunc={setSortFilter} />}
-      {filteredState.length > 0 ?
-      <ul className={HomeStyles.postlists}>
-        {filteredState.map((post) => {
-          return (
-            <li key={post._id} style={{ listStyle: "none" }}>
+      {filteredState.length > 0 
+      ? <ul className={HomeStyles.postlists}>
+         {filteredState.map((post) => {
+           return (
+             <li key={post._id} style={{ listStyle: "none" }}>
               <PostComponent post={post} />
-            </li>
-          );
-        })}
-      </ul> 
+             </li>
+           );
+         })}
+        </ul> 
       : <h2>Follow Someone First 😶‍🌫️</h2>}
     </div>
   );
