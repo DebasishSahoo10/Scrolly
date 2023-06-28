@@ -62,7 +62,6 @@ export const User = () => {
             },
           });
           const returnedUsersData = await serverCall.json();
-          console.log(returnedUsersData)
           userDispatch({
             type: "UPDATE_ALL_USER",
             payload: returnedUsersData.followUser,

@@ -51,7 +51,6 @@ export const UserProvider = ({ children }) => {
     currentUser: {},
     followingUsers: [],
   });
-    useEffect(() => {console.log(userState)}, [userState]);
 
   useEffect(() => {
     (async () => {

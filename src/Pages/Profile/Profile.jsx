@@ -52,7 +52,7 @@ export const Profile = () => {
     })();
     setDialogOpen((prev) => ({ ...prev, avatar: false }));
   };
-  console.log(dialogOpen.avatar);
+  
   return (
     <div className={HomeStyles.home}>
       <Nav />

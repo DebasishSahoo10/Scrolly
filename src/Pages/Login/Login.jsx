@@ -20,7 +20,6 @@ const Login = () => {
           body: testLogin ? JSON.stringify({ username: "thetester_", password: "thetester" }) : JSON.stringify(login),
         });
         const token = await serverCall.json();
-        console.log(token);
         token.encodedToken && authDispatch({ type: "SET_LOGIN", payload: token.encodedToken });
         token.encodedToken && userDispatch({ type: "SET_CURRENT_USER", payload: token.foundUser });
         token.encodedToken && token.foundUser.following.map((user) =>
