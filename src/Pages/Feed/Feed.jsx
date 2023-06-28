@@ -7,10 +7,10 @@ import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css"
 
 export const Feed = () => {
-
-  const [sortFilter, setSortFilter] = useState("Trending");
   const { state } = useContext(DataContext);
   const { userState } = useContext(UserContext);
+  
+  const [sortFilter, setSortFilter] = useState("Trending");
 
   const filteredState = state.posts
   .slice()
