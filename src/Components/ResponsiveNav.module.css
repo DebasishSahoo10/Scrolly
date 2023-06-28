@@ -16,3 +16,8 @@
         display: flex;
     }
 }
+@media screen and (max-width: 421px) {
+  .ResNavButtons {
+    width: 94%;
+  }
+}
