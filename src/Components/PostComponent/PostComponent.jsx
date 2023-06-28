@@ -103,6 +103,7 @@ export const PostComponent = ({ post }) => {
           }
         );
         const bookmarkArray = await serverCall.json();
+        console.log(bookmarkArray)
         dispatch({ type: "SET_BOOKMARKS", payload: bookmarkArray.bookmarks });
       } catch (err) {
         console.error(err);

@@ -11,20 +11,18 @@ export const Feed = () => {
   const [sortFilter, setSortFilter] = useState("Trending");
   const { state } = useContext(DataContext);
   const { userState } = useContext(UserContext);
+
   const filteredState = state.posts
-    .slice()
-    .sort((a, b) =>
-      sortFilter === "Trending"
-        ? b.likes.likeCount - a.likes.likeCount
-        : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    )
-    .filter((post) => userState.followingUsers.includes(post.username));
+  .slice()
+  .sort((a, b) => sortFilter === "Trending" ? b.likes.likeCount - a.likes.likeCount : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+  .filter((post) => userState.followingUsers.includes(post.username));
 
   return (
     <div className={HomeStyles.home}>
       <Nav />
       {filteredState.length > 0 && <FilterButton sortState={sortFilter} sortFunc={setSortFilter} />}
-      {filteredState.length > 0 ? <ul className={HomeStyles.postlists}>
+      {filteredState.length > 0 ?
+      <ul className={HomeStyles.postlists}>
         {filteredState.map((post) => {
           return (
             <li key={post._id} style={{ listStyle: "none" }}>
@@ -32,7 +30,8 @@ export const Feed = () => {
             </li>
           );
         })}
-      </ul> : <h2>Follow Someone First 😶‍🌫️</h2> }
+      </ul> 
+      : <h2>Follow Someone First 😶‍🌫️</h2>}
     </div>
   );
 };
