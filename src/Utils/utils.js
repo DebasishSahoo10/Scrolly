@@ -46,3 +46,57 @@ export const handleProfileEdit = (diaologElement, auth, changedUser, userDispatc
   })();
   setDialogOpen((prev) => ({ ...prev, [diaologElement]: false }));
 };
+export const handleUpload = (input, toast, state, auth, dispatch, sortFunc) => {
+  if(input.postData.content.length===0) {
+    // Toast Error here
+    toast("A Blank Post. Why ⚠️", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark"
+    })
+    return;
+  }
+  if (state.editingPost) {
+    const editPostCall = async () => {
+      try {
+        const serverCall = await fetch("/api/posts/edit/" + state.editingID, {
+          method: "POST",
+          headers: {
+            authorization: auth,
+          },
+          body: JSON.stringify(input),
+        });
+        const newPosts = await serverCall.json();
+        dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    editPostCall();
+    dispatch({ type: "EDIT_FALSE" });
+    dispatch({ type: "POSTFIELD_FALSE" });
+    return;
+  }
+  (async () => {
+    try {
+      const serverCall = await fetch("/api/posts", {
+        method: "POST",
+        headers: {
+          authorization: auth,
+        },
+        body: JSON.stringify(input),
+      });
+      const newPosts = await serverCall.json();
+      dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+  dispatch({ type: "POSTFIELD_FALSE" });
+  sortFunc("Newest")
+};
