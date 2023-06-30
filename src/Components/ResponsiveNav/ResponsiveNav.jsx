@@ -15,18 +15,17 @@ import NavStyles from "./ResponsiveNav.module.css";
 
 
 export const ResponsiveNav = () => {
-    const {dispatch} = useContext(DataContext)
+  const {dispatch} = useContext(DataContext)
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate()
-
-    const handlePostBtn = () => {
-        if (auth.length === 0) {
-          navigate("/login");
-          return;
-        }
-        dispatch({ type: "POSTFIELD_TRUE" });
-        navigate("/")
-      };
+  const handlePostBtn = () => {
+    if (auth.length === 0) {
+      navigate("/login");
+      return;
+    }
+    dispatch({ type: "POSTFIELD_TRUE" });
+    navigate("/")
+  };
   return (
     <div className={NavStyles.ResNavButtons}>
       <NavLink to="/"><img src={Home} alt="" /></NavLink>
