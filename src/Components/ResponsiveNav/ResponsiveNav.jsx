@@ -26,13 +26,19 @@ export const ResponsiveNav = () => {
     dispatch({ type: "POSTFIELD_TRUE" });
     navigate("/")
   };
+  const getACtiveStyle = ({isActive}) => {
+    if (isActive) {
+     return {borderBottom : "1px solid white"}
+    }
+    return {}
+  }
   return (
     <div className={NavStyles.ResNavButtons}>
-      <NavLink to="/"><img src={Home} alt="" /></NavLink>
-      <NavLink to="/bookmarks"><img src={Bookmark} alt="" /></NavLink>
+      <NavLink to="/" style={getACtiveStyle}><img src={Home} alt="" /></NavLink>
+      <NavLink to="/bookmarks" style={getACtiveStyle}><img src={Bookmark} alt="" /></NavLink>
       <img src={Add} alt="" onClick={()=>handlePostBtn()}/>
-      <NavLink to="/selected"><img src={Explore} alt="" /></NavLink>
-      <NavLink to="/search"><img src={Search} alt="" /></NavLink>
+      <NavLink to="/selected" style={getACtiveStyle}><img src={Explore} alt="" /></NavLink>
+      <NavLink to="/search" style={getACtiveStyle}><img src={Search} alt="" /></NavLink>
     </div>
   );
 };
