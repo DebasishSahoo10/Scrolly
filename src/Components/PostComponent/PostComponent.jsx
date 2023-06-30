@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
+import { useContext, forwardRef} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { AuthContext } from "../../Contexts/AuthContext";
 import { DataContext } from "../../Contexts/DataContext";
 import { UserContext } from "../../Contexts/UserContext";
@@ -19,18 +18,18 @@ import PostComponentStyles from "./PostComponent.module.css";
 import { handleBookmark, handleDelete, handleEdit, handleFeatureComing, handleLike } from "../../Utils/utils";
 
 
-export const PostComponent = ({ post }) => {
+export const PostComponent = forwardRef(({post} , ref) => {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(DataContext);
   const isBookmarked = state.bookmarks.includes(post._id);
   const { auth } = useContext(AuthContext);
   const { userState } = useContext(UserContext);
-
   const user = userState.allUsers.find(
     (user) => user.username === post.username
   );
+
   return (
-    <div className={post.img ? PostComponentStyles.imgPost : PostComponentStyles.postcontainer}>
+    <div className={post.img ? PostComponentStyles.imgPost : PostComponentStyles.postcontainer} ref={ref}>
 
       <div className={post.img ? PostComponentStyles.imgUsernameButton : PostComponentStyles.usernameButton}>
         <NavLink to={`/user/${post.username}`}>
@@ -82,4 +81,5 @@ export const PostComponent = ({ post }) => {
       </div>
     </div>
   );
-};
+})
+PostComponent.displayName = 'PostComponent'
