@@ -100,3 +100,40 @@ export const handleUpload = (input, toast, state, auth, dispatch, sortFunc) => {
   dispatch({ type: "POSTFIELD_FALSE" });
   sortFunc("Newest")
 };
+export const handleLike = (likeState, postId, auth, navigate, dispatch) => {
+  if (auth.length === 0) {
+    navigate("/login");
+    return;
+  }
+  if (likeState > 0) {
+    (async () => {
+      try {
+        const serverCall = await fetch("/api/posts/dislike/" + postId, {
+          method: "POST",
+          headers: {
+            authorization: auth,
+          },
+        });
+        const newPosts = await serverCall.json();
+        dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  } else {
+    (async () => {
+      try {
+        const serverCall = await fetch("/api/posts/like/" + postId, {
+          method: "POST",
+          headers: {
+            authorization: auth,
+          },
+        });
+        const newPosts = await serverCall.json();
+        dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }
+};
