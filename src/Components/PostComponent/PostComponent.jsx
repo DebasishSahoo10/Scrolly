@@ -15,7 +15,7 @@ import Share from "../../assets/Share.png";
 import Edit from "../../assets/Edit.png";
 import Comment from "../../assets/Comment.png";
 import PostComponentStyles from "./PostComponent.module.css";
-import { handleBookmark, handleDelete, handleEdit, handleFeatureComing, handleLike } from "../../Utils/utils";
+import { handleBookmark, handleCopyLink, handleDelete, handleEdit, handleFeatureComing, handleLike } from "../../Utils/utils";
 
 
 export const PostComponent = forwardRef(({post} , ref) => {
@@ -59,9 +59,7 @@ export const PostComponent = forwardRef(({post} , ref) => {
           ) : (
             <>
               <img src={Comment} alt="" width={25} height={25} onClick={() => handleFeatureComing(toast)}/>
-              <img src={Share} alt="" width={25} height={25}
-                onClick={() =>handleFeatureComing(toast)}
-              />
+              <img src={Share} alt="" width={25} height={25} onClick={() => handleCopyLink(toast)}/>
             </>
           )}
           <img
