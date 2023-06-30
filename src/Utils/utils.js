@@ -193,3 +193,37 @@ export const handleFeatureComing = (toast) => {
     theme: "dark",
   })
 }
+export const handleFollow = (id, auth, navigate, isFollow, userDispatch) => {
+  if (auth.length === 0) {
+    navigate("/login");
+    return;
+  }
+  (async () => {
+    try {
+      const serverCall = await fetch(
+        `/api/users/${isFollow ? "unfollow" : "follow"}/` + id,
+        {
+          method: "POST",
+          headers: {
+            authorization: auth,
+          },
+        }
+      );
+      const returnedUsersData = await serverCall.json();
+      userDispatch({
+        type: "UPDATE_ALL_USER",
+        payload: returnedUsersData.followUser,
+      });
+      userDispatch({
+        type: "UPDATE_CURRENT_USER",
+        payload: returnedUsersData.user,
+      });
+      userDispatch({
+        type: "UPDATE_FOLLOWING",
+        payload: returnedUsersData.followUser.username,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+};
