@@ -137,3 +137,59 @@ export const handleLike = (likeState, postId, auth, navigate, dispatch) => {
     })();
   }
 };
+export const handleEdit = (postContent, postID, dispatch, navigate) => {
+  dispatch({ type: "EDIT_TRUE" });
+  dispatch({ type: "POSTFIELD_TRUE" });
+  dispatch({ type: "EDIT_POST", payload: postContent });
+  dispatch({ type: "EDIT_ID", payload: postID });
+  navigate("/");
+};
+export const handleDelete = (postID, auth, dispatch) => {
+  (async () => {
+    try {
+      const serverCall = await fetch("/api/posts/" + postID, {
+        method: "DELETE",
+        headers: {
+          authorization: auth,
+        },
+      });
+      const newPosts = await serverCall.json();
+      dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+};
+export const handleBookmark = (postID, isBookmarked, auth, dispatch) => {
+  (async () => {
+    try {
+      const serverCall = await fetch(
+        `/api/users/${
+          isBookmarked ? "remove-bookmark" : "bookmark"
+        }/${postID}`,
+        {
+          method: "POST",
+          headers: {
+            authorization: auth,
+          },
+        }
+      );
+      const bookmarkArray = await serverCall.json();
+      dispatch({ type: "SET_BOOKMARKS", payload: bookmarkArray.bookmarks });
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+};
+export const handleFeatureComing = (toast) => {
+  toast("This Feature Coming Soon 🔜", {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  })
+}
