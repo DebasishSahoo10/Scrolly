@@ -31,22 +31,8 @@ export const users = [
     img : "https://i.postimg.cc/5j2YLNQ4/005.webp",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: [
-      {
-        _id: uuid(),
-        firstName: "Tester",
-        lastName: "Man",
-        username: "thetester_",
-      },
-    ],
-    followers: [
-      {
-        _id: uuid(),
-        firstName: "Tester",
-        lastName: "Man",
-        username: "thetester_",
-      },
-    ],
+    following: [],
+    followers: [],
   },
   {
     _id: uuid(),
@@ -59,22 +45,8 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],
-    following: [
-      {
-        _id: uuid(),
-        firstName: "Tester",
-        lastName: "Man",
-        username: "thetester_",
-      },
-    ],
-    followers: [
-      {
-        _id: uuid(),
-        firstName: "Tester",
-        lastName: "Man",
-        username: "thetester_",
-      },
-    ],
+    following: [],
+    followers: [],
   },
   {
     _id: uuid(),
@@ -87,14 +59,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],
-    following: [
-      {
-        _id: uuid(),
-        firstName: "Tester",
-        lastName: "Man",
-        username: "thetester_",
-      },
-    ],
+    following: [],
     followers: [],
   },
   {
