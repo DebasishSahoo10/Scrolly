@@ -76,5 +76,57 @@ export const posts = [
     username: "7000rpm",
     createdAt: new Date(),
     updatedAt: formatDate(),
-  }
+  },
+  {
+    _id: uuid(),
+    content:
+      "Rapid Growth in Bio Technology across the glove after Corona is a never-seen. It raises a question though : it took millions of life to make Humantity understand what Bio Tech holds?",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "thehope_",
+    createdAt: new Date(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "With Every Iteration, Smartphone makers are throwing millions of dollars into Camera R&D just to make us feel again that they can never be a substitude of an actual Mirrorless. What a waste. 👀",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "lensflare",
+    createdAt: new Date(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Recently been travelling to some popular places. And one thing I can surely extract is that : Don't choose a location based on Drone shots you saw on Instagram. Holy Moly Scam 🌄",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "7000rpm",
+    createdAt: new Date(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "I am really confused what to do for my next device? Android is Lost and Apple is Scary. Any suggestion, folks !!",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "thehope_",
+    createdAt: new Date(),
+    updatedAt: formatDate(),
+  },
 ];
