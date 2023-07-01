@@ -6,7 +6,7 @@ import { FilterButton } from "../../Components/FilterButton/FilterButton";
 import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css"
 
-export const Feed = () => {
+const Feed = () => {
   const { state } = useContext(DataContext);
   const { userState } = useContext(UserContext);
   
@@ -35,3 +35,4 @@ export const Feed = () => {
     </div>
   );
 };
+export default Feed;

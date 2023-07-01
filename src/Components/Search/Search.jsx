@@ -4,7 +4,7 @@ import SearchStyles from "./Search.module.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-export const Search = () => {
+const Search = () => {
   const { userState } = useContext(UserContext);
   const [searchQuery, setSearchQuery] = useState("");
   const filteredUser = userState.allUsers.filter(
@@ -48,3 +48,4 @@ export const Search = () => {
     </div>
   );
 };
+export default Search;

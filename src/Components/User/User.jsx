@@ -10,7 +10,7 @@ import HomeStyles from "../../Pages/Home/Home.module.css";
 import UserStyles from "./User.module.css";
 import { handleFollow } from "../../Utils/utils";
 // eslint-disable-next-line react/prop-types
-export const User = () => {
+const User = () => {
   const navigate = useNavigate();
   const { username } = useParams();
   const { userState, userDispatch } = useContext(UserContext);
@@ -71,3 +71,4 @@ export const User = () => {
     </div>
   );
 };
+export default User;

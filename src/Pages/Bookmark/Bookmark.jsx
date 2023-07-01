@@ -4,7 +4,7 @@ import { PostComponent } from "../../Components/PostComponent/PostComponent";
 import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css";
 
-export const Bookmark = () => {
+const Bookmark = () => {
   const { state } = useContext(DataContext);
   const onlyBookmarked = state.posts.filter((post) =>
     state.bookmarks.includes(post._id)
@@ -23,3 +23,4 @@ export const Bookmark = () => {
     </div>
   );
 };
+export default Bookmark;

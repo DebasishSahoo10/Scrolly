@@ -9,7 +9,7 @@ import ProfileStyles from "./Profile.module.css";
 import { handleLogout, handleProfileEdit } from "../../Utils/utils";
 import PencilEdit from "../../assets/Pencil.png";
 
-export const Profile = () => {
+const Profile = () => {
   const { userState, userDispatch } = useContext(UserContext);
   const { auth, authDispatch } = useContext(AuthContext);
 
@@ -89,3 +89,4 @@ export const Profile = () => {
     </div>
   );
 };
+export default Profile;
