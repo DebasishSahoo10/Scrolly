@@ -83,6 +83,9 @@ img:not(.userImg) {
     flex-direction: column;
     gap: 15px;
   }
+  .username {
+    justify-content: center;
+  }
   .imgAndPost {
     width: 100%;
     align-items: center;
@@ -114,6 +117,9 @@ img:not(.userImg) {
 @media screen and (max-width: 500px) {
   .content {
     text-align: left;
+  }
+  .username {
+    justify-content: left;
   }
   .usernameButton {
     min-width: 100%;
