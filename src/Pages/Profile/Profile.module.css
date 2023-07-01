@@ -27,11 +27,17 @@
   width: 120px;
 }
 .avatarContainer {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.avatarContainer p {
+  margin:  0;
+  font-family: "Recursive", sans-serif;
+  display: flex;
+  gap: 10px;
 }
 .identifier {
   height: 2px;
@@ -53,4 +59,23 @@
   align-items: center;
   height: 100%;
   gap: 10px;
+}
+.portfolioChange {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.portfolioChange input {
+  height: 30px;
+  width: 220px;
+  font-family: "Recursive", sans-serif;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #a5a735;
+}
+.portfolioChange button {
+  font-family: "Recursive", sans-serif;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #a5a735;
 }

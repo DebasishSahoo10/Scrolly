@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { UserContext } from "../../Contexts/UserContext";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -7,6 +7,7 @@ import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css";
 import ProfileStyles from "./Profile.module.css";
 import { handleLogout, handleProfileEdit } from "../../Utils/utils";
+import PencilEdit from "../../assets/Pencil.png";
 
 export const Profile = () => {
   const { userState, userDispatch } = useContext(UserContext);
@@ -14,6 +15,23 @@ export const Profile = () => {
 
   const [dialogOpen, setDialogOpen] = useState({ bio: false, avatar: false });
   const [changedUser, setChangedUser] = useState({userData: userState.currentUser,});
+  const [isPortfolioChange, setPortfolioChange] = useState(false)
+  const [portfolio, setPortfolio] = useState("")
+
+  const handlePortfolioEdit = () => {
+    localStorage.setItem("portfolio", portfolio)
+    setPortfolioChange(false)
+  }
+
+  useEffect(()=>{
+    const newBio = localStorage.getItem("portfolio")
+    if (newBio) {
+      setPortfolio(newBio)
+    } else {
+      setPortfolio(userState.currentUser.portfolio)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <div className={HomeStyles.home}>
@@ -22,9 +40,11 @@ export const Profile = () => {
       <div className={ProfileStyles.avatarContainer}>
         <img src={userState.currentUser.img} alt="" width={100} height={100} />
         <h2 style={{ marginBottom: "0px" }}>{userState.currentUser.username}</h2>
-        <p style={{ fontFamily: "Recursive, sans-serif", marginTop: "0px" }}>
+        <p>
           {userState.currentUser.firstName} {userState.currentUser.lastName}
         </p>
+        {!isPortfolioChange && <p>Portfolio URL : {portfolio} <img src={PencilEdit} alt="" width={20} height={20} onClick={()=>setPortfolioChange(true)}/> </p>}
+        {isPortfolioChange && <div className={ProfileStyles.portfolioChange}><input type="text" placeholder="New Portfolio URL goes here" onChange={(e)=>setPortfolio(e.target.value)}/><button onClick={()=>handlePortfolioEdit()}>Save</button></div>}
       </div>
 
       <div className={ProfileStyles.bioContainer}>

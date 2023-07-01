@@ -22,22 +22,37 @@ export const User = () => {
   const selectedUser = userState.allUsers.find(
     (user) => user.username === username
   );
-  
+
   return (
     <div className={HomeStyles.home}>
       <Nav />
       <div className={UserStyles.user}>
         <img src={selectedUser.img} alt="" width={80} height={80} />
-        <h2>{selectedUser.username}</h2>
-        <p>
+        <h2 style={{ margin: "0px" }}>{selectedUser.username}</h2>
+        <p style={{ margin: "0px" }}>
           {selectedUser.firstName} {selectedUser.lastName}
         </p>
-        <p>
+        <p style={{ margin: "0px" }}>
           <i>{selectedUser.bio}</i>
         </p>
+        <p>
+          Portfolio URL : {selectedUser?.portfolio}
+        </p>
         <button
-          onClick={() => handleFollow(selectedUser._id, auth, navigate, isFollow, userDispatch)}
-          style={{display : selectedUser.username === userState.currentUser.username && "none"}}
+          onClick={() =>
+            handleFollow(
+              selectedUser._id,
+              auth,
+              navigate,
+              isFollow,
+              userDispatch
+            )
+          }
+          style={{
+            display:
+              selectedUser.username === userState.currentUser.username &&
+              "none",
+          }}
         >
           {isFollow ? "Unfollow" : "Follow"}
         </button>
