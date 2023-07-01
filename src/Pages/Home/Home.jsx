@@ -9,8 +9,8 @@ import { Nav } from "../../Components/Nav/Nav";
 import { FilterButton } from "../../Components/FilterButton/FilterButton";
 import HomeStyles from "./Home.module.css";
 
-import Add from "../../assets/Add.png";
-import Search from "../../assets/Search.png";
+import Add from "../../assets/Add.svg";
+import Search from "../../assets/Search.svg";
 import { handlePostBtn } from "../../Utils/utils";
 
 const Home = () => {
