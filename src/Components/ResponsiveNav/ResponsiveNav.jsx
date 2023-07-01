@@ -6,11 +6,11 @@ import { NavLink } from "react-router-dom";
 import { DataContext } from "../../Contexts/DataContext";
 import { AuthContext } from "../../Contexts/AuthContext";
 
-import Home from "../../assets/Responsive Assets/Home.png";
-import Bookmark from "../../assets/Responsive Assets/Bookmark.png";
-import Explore from "../../assets/Responsive Assets/Explore.png";
-import Add from "../../assets/Responsive Assets/Add.png";
-import Search from "../../assets/Responsive Assets/Search.png";
+import Home from "../../assets/Responsive Assets/Home.svg";
+import Bookmark from "../../assets/Responsive Assets/Bookmark.svg";
+import Explore from "../../assets/Responsive Assets/Explore.svg";
+import Add from "../../assets/Responsive Assets/Add.svg";
+import Search from "../../assets/Responsive Assets/Search.svg";
 import NavStyles from "./ResponsiveNav.module.css";
 
 
@@ -34,11 +34,11 @@ export const ResponsiveNav = () => {
   }
   return (
     <div className={NavStyles.ResNavButtons}>
-      <NavLink to="/" style={getACtiveStyle}><img src={Home} alt="" /></NavLink>
-      <NavLink to="/bookmarks" style={getACtiveStyle}><img src={Bookmark} alt="" /></NavLink>
-      <img src={Add} alt="" onClick={()=>handlePostBtn()}/>
-      <NavLink to="/selected" style={getACtiveStyle}><img src={Explore} alt="" /></NavLink>
-      <NavLink to="/search" style={getACtiveStyle}><img src={Search} alt="" /></NavLink>
+      <NavLink to="/" style={getACtiveStyle}><img src={Home} alt="" width={40} height={40}/></NavLink>
+      <NavLink to="/bookmarks" style={getACtiveStyle}><img src={Bookmark} alt="" width={40} height={40}/></NavLink>
+      <img src={Add} alt="" onClick={()=>handlePostBtn()} width={40} height={40}/>
+      <NavLink to="/selected" style={getACtiveStyle}><img src={Explore} alt="" width={40} height={40}/></NavLink>
+      <NavLink to="/search" style={getACtiveStyle}><img src={Search} alt="" width={40} height={40}/></NavLink>
     </div>
   );
 };
