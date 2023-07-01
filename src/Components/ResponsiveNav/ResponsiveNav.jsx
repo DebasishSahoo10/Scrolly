@@ -34,11 +34,11 @@ export const ResponsiveNav = () => {
   }
   return (
     <div className={NavStyles.ResNavButtons}>
-      <NavLink to="/" style={getACtiveStyle}><img src={Home} alt="" width={40} height={40}/></NavLink>
-      <NavLink to="/bookmarks" style={getACtiveStyle}><img src={Bookmark} alt="" width={40} height={40}/></NavLink>
-      <img src={Add} alt="" onClick={()=>handlePostBtn()} width={40} height={40}/>
-      <NavLink to="/selected" style={getACtiveStyle}><img src={Explore} alt="" width={40} height={40}/></NavLink>
-      <NavLink to="/search" style={getACtiveStyle}><img src={Search} alt="" width={40} height={40}/></NavLink>
+      <NavLink to="/" style={getACtiveStyle}><img src={Home} alt="" width={50} height={50}/></NavLink>
+      <NavLink to="/bookmarks" style={getACtiveStyle}><img src={Bookmark} alt="" width={50} height={50}/></NavLink>
+      <img src={Add} alt="" onClick={()=>handlePostBtn()} width={50} height={50}/>
+      <NavLink to="/selected" style={getACtiveStyle}><img src={Explore} alt="" width={50} height={50}/></NavLink>
+      <NavLink to="/search" style={getACtiveStyle}><img src={Search} alt="" width={50} height={50}/></NavLink>
     </div>
   );
 };
