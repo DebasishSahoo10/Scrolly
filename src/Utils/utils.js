@@ -160,7 +160,11 @@ export const handleDelete = (postID, auth, dispatch) => {
     }
   })();
 };
-export const handleBookmark = (postID, isBookmarked, auth, dispatch) => {
+export const handleBookmark = (postID, isBookmarked, auth, dispatch, navigate) => {
+  if (auth.length === 0) {
+    navigate("/login");
+    return;
+  }
   (async () => {
     try {
       const serverCall = await fetch(

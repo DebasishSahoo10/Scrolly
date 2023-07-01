@@ -63,7 +63,7 @@ export const PostComponent = forwardRef(({post} , ref) => {
             </>
           )}
           <img
-            onClick={() => handleBookmark(post._id, isBookmarked, auth, dispatch)}
+            onClick={() => handleBookmark(post._id, isBookmarked, auth, dispatch, navigate)}
             src={isBookmarked ? Bookmarked : Bookmark}
             alt=""
             width={23}
