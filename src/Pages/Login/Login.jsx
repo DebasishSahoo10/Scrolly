@@ -17,6 +17,7 @@ const Login = () => {
   
   const [login, setLogin] = useState({ username: "", password: "" });
   const [error, setError] = useState(false)
+  const [passwordFieldType, setPasswordFieldType] = useState("password")
 
   return (
     <div className={LoginStyles.login}>
@@ -28,7 +29,8 @@ const Login = () => {
           <input type="text" id="name-input" onChange={(e) => setLogin((prev) => ({ ...prev, username: e.target.value }))}/>
 
           <label htmlFor="password-input">Password : </label>
-          <input type="password" id="password-input" onChange={(e) => setLogin((prev) => ({ ...prev, password: e.target.value }))}/>
+          <input type={passwordFieldType ? "password" : "text"} id="password-input" onChange={(e) => setLogin((prev) => ({ ...prev, password: e.target.value }))}/>
+          <p onClick={()=>setPasswordFieldType(prev => !prev)} style={{cursor : "pointer", fontSize : "larger"}}>{passwordFieldType ? "😑" : "😐"}</p>
 
           <button onClick={() => handleLogin(false, authDispatch, userDispatch, navigate, setError, login, location)}>Login</button>
           <button onClick={()=>handleLogin(true, authDispatch, userDispatch, navigate, setError, login, location)}>LogIn with Test Credentials</button>
