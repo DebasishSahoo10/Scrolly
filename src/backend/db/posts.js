@@ -1,7 +1,5 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import RadialBlue from "../../assets/Radial-Blue.webp"
-import LadyInAir from "../../assets/LadyInAir.webp"
 // import dayjs from "dayjs";
 
 /**
@@ -12,7 +10,7 @@ import LadyInAir from "../../assets/LadyInAir.webp"
 export const posts = [
   {
     _id: uuid(),
-    img : RadialBlue,
+    img : "https://ik.imagekit.io/debasish/Radial-Blue.webp?tr=w-570,h-450",
     content:
       "The New Macbook wallpapers are sleek and unique 🔥🔥. Probably the best thing out of WWDC 😝",
     likes: {
@@ -39,7 +37,7 @@ export const posts = [
   },
   {
     _id: uuid(),
-    img : LadyInAir,
+    img : "https://ik.imagekit.io/debasish/LadyInAir.webp?tr=w-570,h-450",
     content:
       "The way creativity works is a bit different than other professional stuff ✳️. You can't Force it. When it comes it comes.",
     likes: {
