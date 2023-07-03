@@ -75,7 +75,7 @@ export const PostComponent = forwardRef(({post} , ref) => {
         <div className={PostComponentStyles.content}>
           <p>{post.content}</p>
         </div>
-        {post.img && <img src={post.img} alt="" width={380} height={300} style={{background: "#252525 url() center center/cover no-repeat"}}/>}
+        {post.img && <img src={post.img} alt="" width={380} height={300} />}
       </div>
     </div>
   );
