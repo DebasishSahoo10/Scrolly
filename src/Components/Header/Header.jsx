@@ -16,12 +16,14 @@ export const Header = () => {
       {auth.length > 0 && (
         <NavLink to="/profile" className={HeaderStyles.smallNav}>
           <div className={HeaderStyles.user}>
-            <img
-              src={userState.currentUser.img}
-              alt="profile picture of user"
-              width={45}
-              height={45}
-            />
+            {userState.currentUser.img && (
+              <img
+                src={userState.currentUser.img}
+                alt="profile picture of user"
+                width={45}
+                height={45}
+              />
+            )}
             <div>
               <p>{userState.currentUser.username}</p>
               <p>
@@ -35,7 +37,11 @@ export const Header = () => {
       <NavLink to="/login" className={HeaderStyles.loginlink}>
         {auth.length === 0 ? "LogIn" : "LogOut"}
       </NavLink>
-      <NavLink to="/login" className={HeaderStyles.ResLoginlink} style={{display :auth.length > 0 && "none" }}>
+      <NavLink
+        to="/login"
+        className={HeaderStyles.ResLoginlink}
+        style={{ display: auth.length > 0 && "none" }}
+      >
         LogIn
       </NavLink>
     </div>

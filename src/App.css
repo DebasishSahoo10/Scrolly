@@ -7,9 +7,6 @@
   descent-override: normal;
   line-gap-override: normal;
 }
-h1 {
-  font-family: "Recursive-Regular", "Adjusted Trebuchet MS Fallback";
-}
 body {
   width: 99.8%;
   background-color: black;

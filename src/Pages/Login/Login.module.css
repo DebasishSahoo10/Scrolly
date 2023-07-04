@@ -14,6 +14,12 @@
   font-family: "Recursive", sans-serif;
   margin-bottom: 40px;
 }
+.login p {
+  font-family: "Recursive", sans-serif;
+}
+.login a {
+  color: #a5a735;
+}
 .login label {
   color: white;
   font-family: "Recursive", sans-serif;

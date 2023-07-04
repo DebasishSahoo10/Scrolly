@@ -5,6 +5,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { UserContext } from "../../Contexts/UserContext";
 import { handleLogin, handleLogout } from "../../Utils/utils";
 import LoginStyles from "./Login.module.css";
+import { NavLink } from "react-router-dom";
 
 
 const Login = () => {
@@ -25,7 +26,7 @@ const Login = () => {
         <>
           <h1>{error ? "Wrong Credentials" : "Please Login First" }</h1>
 
-          <label htmlFor="name-input">Name : </label>
+          <label htmlFor="name-input">Username : </label>
           <input type="text" id="name-input" onChange={(e) => setLogin((prev) => ({ ...prev, username: e.target.value }))}/>
 
           <label htmlFor="password-input">Password : </label>
@@ -34,6 +35,8 @@ const Login = () => {
 
           <button onClick={() => handleLogin(false, authDispatch, userDispatch, navigate, setError, login, location)}>Login</button>
           <button onClick={()=>handleLogin(true, authDispatch, userDispatch, navigate, setError, login, location)}>LogIn with Test Credentials</button>
+
+          <p>Not have an account? You can <NavLink to="/signup">Signup</NavLink> here</p>
         </>
       ) : (
         <>

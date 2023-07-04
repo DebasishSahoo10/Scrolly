@@ -19,6 +19,7 @@ const Feed = lazy(() => import("./Pages/Feed/Feed"))
 const Profile = lazy(() => import("./Pages/Profile/Profile"))
 const Search = lazy(() => import("./Components/Search/Search"))
 const User = lazy(() => import("./Components/User/User"))
+const Signup = lazy(()=> import("./Pages/Signup/Signup"))
 
 // Call make Server
 makeServer();
@@ -36,6 +37,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                     <Route path="/user/:username" element={<User />} />
                     <Route
                       path="/selected"

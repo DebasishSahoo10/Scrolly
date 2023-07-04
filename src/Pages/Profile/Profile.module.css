@@ -14,7 +14,10 @@
 .buttonContainer {
   font-family: "Recursive", sans-serif;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 .buttonContainer button {
   height: 75px;
