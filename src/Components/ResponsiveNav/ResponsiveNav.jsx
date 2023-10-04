@@ -1,29 +1,25 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
-
-
-import { DataContext } from "../../Contexts/DataContext";
-import { AuthContext } from "../../Contexts/AuthContext";
-
 import Home from "../../assets/Responsive Assets/Home.svg";
 import Bookmark from "../../assets/Responsive Assets/Bookmark.svg";
 import Explore from "../../assets/Responsive Assets/Explore.svg";
 import Add from "../../assets/Responsive Assets/Add.svg";
 import Search from "../../assets/Responsive Assets/Search.svg";
 import NavStyles from "./ResponsiveNav.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import {POSTFIELD_TRUE} from '../../Redux/DataSlice'
 
 
 export const ResponsiveNav = () => {
-  const {dispatch} = useContext(DataContext)
-  const { auth } = useContext(AuthContext);
+  const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth.auth)
   const navigate = useNavigate()
   const handlePostBtn = () => {
     if (auth.length === 0) {
       navigate("/login");
       return;
     }
-    dispatch({ type: "POSTFIELD_TRUE" });
+    dispatch(POSTFIELD_TRUE());
     navigate("/")
   };
   const getACtiveStyle = ({isActive}) => {

@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { DataContext } from "../../Contexts/DataContext";
 import { PostComponent } from "../../Components/PostComponent/PostComponent";
 import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css";
+import { useSelector } from "react-redux";
 
 const Bookmark = () => {
-  const { state } = useContext(DataContext);
-  const onlyBookmarked = state.posts.filter((post) =>
-    state.bookmarks.includes(post._id)
+  const data = useSelector(state => state.data);
+  const onlyBookmarked = data.posts.filter((post) =>
+    data.bookmarks.includes(post._id)
   );
   return (
     <div className={HomeStyles.home}>

@@ -1,20 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-
-import { UserContext } from "../../Contexts/UserContext";
-import { AuthContext } from "../../Contexts/AuthContext";
+import { useEffect, useState } from "react";
 import { Avatars } from "../../Local Database/Avatars";
 import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css";
 import ProfileStyles from "./Profile.module.css";
 import { handleLogout, handleProfileEdit } from "../../Utils/utils";
 import PencilEdit from "../../assets/Pencil.png";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
-  const { userState, userDispatch } = useContext(UserContext);
-  const { auth, authDispatch } = useContext(AuthContext);
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth.auth)
 
   const [dialogOpen, setDialogOpen] = useState({ bio: false, avatar: false });
-  const [changedUser, setChangedUser] = useState({userData: userState.currentUser,});
+  const [changedUser, setChangedUser] = useState({userData: user.currentUser,});
   const [isPortfolioChange, setPortfolioChange] = useState(false)
   const [portfolio, setPortfolio] = useState("")
 
@@ -28,7 +27,7 @@ const Profile = () => {
     if (newBio) {
       setPortfolio(newBio)
     } else {
-      setPortfolio(userState.currentUser.portfolio)
+      setPortfolio(user.currentUser.portfolio)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
@@ -38,26 +37,26 @@ const Profile = () => {
       <Nav />
 
       <div className={ProfileStyles.avatarContainer}>
-        <img src={userState.currentUser.img} alt="" width={100} height={100} />
-        <h2 style={{ marginBottom: "0px" }}>{userState.currentUser.username}</h2>
+        <img src={user.currentUser.img} alt="" width={100} height={100} />
+        <h2 style={{ marginBottom: "0px" }}>{user.currentUser.username}</h2>
         <p>
-          {userState.currentUser.firstName} {userState.currentUser.lastName}
+          {user.currentUser.firstName} {user.currentUser.lastName}
         </p>
         {!isPortfolioChange && <p>Portfolio URL : {portfolio} <img src={PencilEdit} alt="" width={20} height={20} onClick={()=>setPortfolioChange(true)}/> </p>}
         {isPortfolioChange && <div className={ProfileStyles.portfolioChange}><input type="text" placeholder="New Portfolio URL goes here" onChange={(e)=>setPortfolio(e.target.value)}/><button onClick={()=>handlePortfolioEdit()}>Save</button></div>}
       </div>
 
       <div className={ProfileStyles.bioContainer}>
-        <p>Bio : <br /> <i>{userState.currentUser.bio}</i></p>
-        <p>Following : {userState.currentUser.following.length}</p>
-        <p>Followers : {userState.currentUser.followers.length}</p>
+        <p>Bio : <br /> <i>{user.currentUser.bio}</i></p>
+        <p>Following : {user.currentUser.following.length}</p>
+        <p>Followers : {user.currentUser.followers.length}</p>
       </div>
 
       <dialog open={dialogOpen.bio}>
         <div className={ProfileStyles.bio}>
           <p>Type your new Bio Here</p>
           <input type="text" onChange={(e) => setChangedUser({userData: { ...changedUser.userData, bio: e.target.value }})}/>
-          <button onClick={() => handleProfileEdit("bio", auth, changedUser, userDispatch, setDialogOpen)}>Save</button>
+          <button onClick={() => handleProfileEdit("bio", auth, changedUser, dispatch, setDialogOpen)}>Save</button>
         </div>
       </dialog>
 
@@ -76,14 +75,14 @@ const Profile = () => {
               );
             })}
           </ul>
-          <button onClick={() => handleProfileEdit("avatar", auth, changedUser, userDispatch, setDialogOpen)}>Save</button>
+          <button onClick={() => handleProfileEdit("avatar", auth, changedUser, dispatch, setDialogOpen)}>Save</button>
         </div>
       </dialog>
 
       <div className={ProfileStyles.buttonContainer}>
         <button onClick={() => setDialogOpen((prev) => ({ ...prev, avatar: true }))}>Change Avatar</button>
         <button onClick={() => setDialogOpen((prev) => ({ ...prev, bio: true }))}>Change Bio</button>
-        <button onClick={() => handleLogout(authDispatch, userDispatch)}>Log Out</button>
+        <button onClick={() => handleLogout(dispatch, dispatch)}>Log Out</button>
       </div>
 
     </div>

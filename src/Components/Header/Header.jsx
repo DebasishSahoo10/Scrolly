@@ -1,13 +1,10 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
-import { AuthContext } from "../../Contexts/AuthContext";
-import { UserContext } from "../../Contexts/UserContext";
 import HeaderStyles from "./Header.module.css";
+import { useSelector } from "react-redux";
 
-export const Header = () => {
-  const { auth } = useContext(AuthContext);
-  const { userState } = useContext(UserContext);
+export const Header = () => { 
+  const auth = useSelector(state => state.auth.auth);
+  const user = useSelector(state => state.user)
   return (
     <div className={HeaderStyles.header}>
       <NavLink to="/">
@@ -16,19 +13,19 @@ export const Header = () => {
       {auth.length > 0 && (
         <NavLink to="/profile" className={HeaderStyles.smallNav}>
           <div className={HeaderStyles.user}>
-            {userState.currentUser.img && (
+            {user.currentUser.img && (
               <img
-                src={userState.currentUser.img}
+                src={user.currentUser.img}
                 alt="profile picture of user"
                 width={45}
                 height={45}
               />
             )}
             <div>
-              <p>{userState.currentUser.username}</p>
+              <p>{user.currentUser.username}</p>
               <p>
-                {userState.currentUser.firstName}{" "}
-                {userState.currentUser.lastName}
+                {user.currentUser.firstName}{" "}
+                {user.currentUser.lastName}
               </p>
             </div>
           </div>

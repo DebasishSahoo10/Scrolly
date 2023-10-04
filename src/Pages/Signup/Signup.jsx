@@ -2,8 +2,8 @@ import { useState } from "react";
 import LoginStyles from "../Login/Login.module.css";
 
 const Signup = () => {
-    const [signupError, setSignupError] = useState(false)
-    const [canLogin, setCanLogin] = useState(false)
+  const [signupError, setSignupError] = useState(false)
+  const [canLogin, setCanLogin] = useState(false)
   const [signupDetails, setSignupDetails] = useState({
     username: "",
     password: "",
@@ -16,7 +16,6 @@ const Signup = () => {
                 body : JSON.stringify(signupDetails)
             })
             const serverResponse = await serverCall.json()
-            console.log(serverResponse)
             {!serverResponse.encodedToken && setSignupError(true)}
             {!serverResponse.encodedToken && setCanLogin(false)}
             {serverResponse.encodedToken && setCanLogin(true)}

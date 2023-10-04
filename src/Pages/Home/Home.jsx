@@ -1,8 +1,5 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { DataContext } from "../../Contexts/DataContext";
-import { AuthContext } from "../../Contexts/AuthContext";
 import { PostComponent } from "../../Components/PostComponent/PostComponent";
 import { NewPostField } from "../../Components/NewPostField/NewPostField";
 import { Nav } from "../../Components/Nav/Nav";
@@ -12,16 +9,18 @@ import HomeStyles from "./Home.module.css";
 import Add from "../../assets/Add.svg";
 import Search from "../../assets/Search.svg";
 import { handlePostBtn } from "../../Utils/utils";
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [itemLimit, setItemLimit] = useState(3);
-  const [isWait, setIsWait] = useState(false);
-  const [sortFilter, setSortFilter] = useState("Trending");
-  const { state, dispatch } = useContext(DataContext);
-  const { auth } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const [itemLimit, setItemLimit] = useState(3)
+  const [isWait, setIsWait] = useState(false)
+  const [sortFilter, setSortFilter] = useState("Trending")
+  const dispatch = useDispatch()
+  const data = useSelector(state => state.data)
+  const auth = useSelector(state => state.auth.auth)
   const lastItemRef = useRef();
-  const filteredState = state.posts
+  const filteredState = data.posts
     .slice()
     .sort((a, b) =>
       sortFilter === "Trending"
@@ -70,7 +69,7 @@ const Home = () => {
         />
       </div>
       <ul className={HomeStyles.postlists}>
-        {state.newPostField && (
+        {data.newPostField && (
           <NewPostField
             className={HomeStyles.newPostField}
             sortFunc={setSortFilter}

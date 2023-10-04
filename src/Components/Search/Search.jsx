@@ -1,15 +1,14 @@
-import { useContext } from "react";
-import { UserContext } from "../../Contexts/UserContext";
 import SearchStyles from "./Search.module.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Search = () => {
-  const { userState } = useContext(UserContext);
+  const user = useSelector(state => state.user);
   const [searchQuery, setSearchQuery] = useState("");
-  const filteredUser = userState.allUsers.filter(
+  const filteredUser = user.allUsers.filter(
     (user) =>
-      user.username !== userState.currentUser.username &&
+      user.username !== user.currentUser?.username &&
       user.username.includes(searchQuery)
   );
   return (

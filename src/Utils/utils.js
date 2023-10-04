@@ -1,11 +1,15 @@
+import { SET_LOGIN, SET_LOGOUT } from "../Redux/AuthSlice";
+import { EDIT_FALSE, EDIT_ID, EDIT_POST, EDIT_TRUE, POSTFIELD_FALSE, POSTFIELD_TRUE, SET_BOOKMARKS, SET_POSTS } from "../Redux/DataSlice";
+import { SET_CURRENT_USER, UPDATE_ALL_USER, UPDATE_CURRENT_USER, UPDATE_FOLLOWING } from "../Redux/UserSlice";
+
 export const handlePostBtn = (auth, navigate, dispatch) => {
   if (auth.length === 0) {
     navigate("/login");
     return;
   }
-  dispatch({ type: "POSTFIELD_TRUE" });
+  dispatch(POSTFIELD_TRUE());
 };
-export const handleLogin = (testLogin, authDispatch, userDispatch, navigate, setError, login, location) => {
+export const handleLogin = (testLogin, dispatch, navigate, setError, login, location) => {
   (async () => {
     try {
       const serverCall = await fetch("/api/auth/login", {
@@ -13,10 +17,10 @@ export const handleLogin = (testLogin, authDispatch, userDispatch, navigate, set
         body: testLogin ? JSON.stringify({ username: "thetester_", password: "thetester" }) : JSON.stringify(login),
       });
       const token = await serverCall.json();
-      token.encodedToken && authDispatch({ type: "SET_LOGIN", payload: token.encodedToken });
-      token.encodedToken && userDispatch({ type: "SET_CURRENT_USER", payload: token.foundUser });
+      token.encodedToken && dispatch(SET_LOGIN(token.encodedToken));
+      token.encodedToken && dispatch(SET_CURRENT_USER(token.foundUser));
       token.encodedToken && token.foundUser.following.map((user) =>
-        userDispatch({ type: "UPDATE_FOLLOWING", payload: user.username })
+        dispatch(UPDATE_FOLLOWING(user.username))
       );
       token.encodedToken && navigate(location?.state?.from?.pathname)
       token.encodedToken && setError(false)
@@ -26,11 +30,11 @@ export const handleLogin = (testLogin, authDispatch, userDispatch, navigate, set
     }
   })();
 };
-export const handleLogout = (authDispatch, userDispatch) => {
-  authDispatch({ type: "SET_LOGOUT" });
-  userDispatch({ type: "SET_CURRENT_USER", payload: {} });
+export const handleLogout = (dispatch) => {
+  dispatch(SET_LOGOUT());
+  dispatch(SET_CURRENT_USER({}));
 };
-export const handleProfileEdit = (diaologElement, auth, changedUser, userDispatch, setDialogOpen) => {
+export const handleProfileEdit = (diaologElement, auth, changedUser, dispatch, setDialogOpen) => {
   (async () => {
     try {
       const serverCall = await fetch("/api/users/edit", {
@@ -39,7 +43,7 @@ export const handleProfileEdit = (diaologElement, auth, changedUser, userDispatc
         body: JSON.stringify(changedUser),
       });
       const newUser = await serverCall.json();
-      userDispatch({ type: "SET_CURRENT_USER", payload: newUser.user });
+      dispatch(SET_CURRENT_USER(newUser.user));
     } catch (err) {
       console.error(err);
     }
@@ -72,14 +76,14 @@ export const handleUpload = (input, toast, state, auth, dispatch, sortFunc) => {
           body: JSON.stringify(input),
         });
         const newPosts = await serverCall.json();
-        dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+        dispatch(SET_POSTS(newPosts["posts"]));
       } catch (err) {
         console.log(err);
       }
     };
     editPostCall();
-    dispatch({ type: "EDIT_FALSE" });
-    dispatch({ type: "POSTFIELD_FALSE" });
+    dispatch(EDIT_FALSE());
+    dispatch(POSTFIELD_FALSE());
     return;
   }
   (async () => {
@@ -92,12 +96,12 @@ export const handleUpload = (input, toast, state, auth, dispatch, sortFunc) => {
         body: JSON.stringify(input),
       });
       const newPosts = await serverCall.json();
-      dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+      dispatch(SET_POSTS(newPosts["posts"]));
     } catch (err) {
       console.error(err);
     }
   })();
-  dispatch({ type: "POSTFIELD_FALSE" });
+  dispatch(POSTFIELD_FALSE());
   sortFunc("Newest")
 };
 export const handleLike = (likeState, postId, auth, navigate, dispatch) => {
@@ -115,7 +119,7 @@ export const handleLike = (likeState, postId, auth, navigate, dispatch) => {
           },
         });
         const newPosts = await serverCall.json();
-        dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+        dispatch(SET_POSTS(newPosts["posts"]));
       } catch (err) {
         console.error(err);
       }
@@ -130,7 +134,7 @@ export const handleLike = (likeState, postId, auth, navigate, dispatch) => {
           },
         });
         const newPosts = await serverCall.json();
-        dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+        dispatch(SET_POSTS(newPosts["posts"]));
       } catch (err) {
         console.error(err);
       }
@@ -138,10 +142,10 @@ export const handleLike = (likeState, postId, auth, navigate, dispatch) => {
   }
 };
 export const handleEdit = (postContent, postID, dispatch, navigate) => {
-  dispatch({ type: "EDIT_TRUE" });
-  dispatch({ type: "POSTFIELD_TRUE" });
-  dispatch({ type: "EDIT_POST", payload: postContent });
-  dispatch({ type: "EDIT_ID", payload: postID });
+  dispatch(EDIT_TRUE());
+  dispatch(POSTFIELD_TRUE());
+  dispatch(EDIT_POST(postContent));
+  dispatch(EDIT_ID(postID));
   navigate("/");
 };
 export const handleDelete = (postID, auth, dispatch) => {
@@ -154,7 +158,7 @@ export const handleDelete = (postID, auth, dispatch) => {
         },
       });
       const newPosts = await serverCall.json();
-      dispatch({ type: "SET_POSTS", payload: newPosts["posts"] });
+      dispatch(SET_POSTS(newPosts["posts"]));
     } catch (err) {
       console.error(err);
     }
@@ -179,7 +183,7 @@ export const handleBookmark = (postID, isBookmarked, auth, dispatch, navigate) =
         }
       );
       const bookmarkArray = await serverCall.json();
-      dispatch({ type: "SET_BOOKMARKS", payload: bookmarkArray.bookmarks });
+      dispatch(SET_BOOKMARKS(bookmarkArray.bookmarks));
     } catch (err) {
       console.error(err);
     }
@@ -197,7 +201,7 @@ export const handleFeatureComing = (toast) => {
     theme: "dark",
   })
 }
-export const handleFollow = (id, auth, navigate, isFollow, userDispatch) => {
+export const handleFollow = (id, auth, navigate, isFollow, dispatch) => {
   if (auth.length === 0) {
     navigate("/login");
     return;
@@ -214,18 +218,9 @@ export const handleFollow = (id, auth, navigate, isFollow, userDispatch) => {
         }
       );
       const returnedUsersData = await serverCall.json();
-      userDispatch({
-        type: "UPDATE_ALL_USER",
-        payload: returnedUsersData.followUser,
-      });
-      userDispatch({
-        type: "UPDATE_CURRENT_USER",
-        payload: returnedUsersData.user,
-      });
-      userDispatch({
-        type: "UPDATE_FOLLOWING",
-        payload: returnedUsersData.followUser.username,
-      });
+      dispatch(UPDATE_ALL_USER(returnedUsersData.followUser));
+      dispatch(UPDATE_CURRENT_USER(returnedUsersData.user));
+      dispatch(UPDATE_FOLLOWING(returnedUsersData.followUser.username));
     } catch (err) {
       console.error(err);
     }
