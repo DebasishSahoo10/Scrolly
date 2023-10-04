@@ -25,7 +25,7 @@ and there you go ✳️
 - **User Image Upload** (User can upload images from his local device. with the native browser API `URL.createObjectURL`, it is working as expected)
 - **Link Copying to System Clipboard** (Whenever user clicks on share icon, the link of the app gets copied to his system's clipboad. With another native API `navigator.clipboard.writeText`, this became possible)
 - **Event Delegation** (While user selects from list of Avatars, instead of attaching each DOM node of all the avatars, I attached the event listener to the parent container. React uses it in their codebase, so I just wanted to test it somewhere.)
-- **All the Features from my last Project** (every feature like SPA, Full Responsiveness, Private Routes, Toasts, Lazy Imports, Context from my [last project](https://github.com/DebasishSahoo10/The-Look-Shop) is there in this one too.)
+- **All the Features from my last Project** (every feature like SPA, Full Responsiveness, Private Routes, Toasts, Lazy Imports, Redux Toolkit for state management from my [last project](https://github.com/DebasishSahoo10/The-Look-Shop) is there in this one too.)
 - **All the Typical Social Media Actions** : (Follow, Unfollow, Bookmark, Add Post, Edit Post, Delete Post, Change Bio, Change Profile Picture, Change Portfolio URL, Search Users)
 
 ## 🦄 What is different from previous projects
