@@ -14,7 +14,6 @@ export const DataSlice = createSlice({
     reducers : {
         SET_POSTS : (state, action) => {
             state.posts = action.payload
-            console.log(state.posts)
         },
         POSTFIELD_TRUE : (state, action) => {
             state.newPostField = action.payload

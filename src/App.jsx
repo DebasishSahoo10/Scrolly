@@ -36,7 +36,6 @@ function App() {
           method: "GET",
         });
         const users = await userServerCall.json();
-        console.log(users)
         dispatch(SET_ALL_USERS(users.users));
         if (users) {
           setIsLoading(false)

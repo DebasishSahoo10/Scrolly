@@ -11,7 +11,6 @@ export const UserSlice = createSlice({
   reducers: {
     SET_ALL_USERS: (state, action) => {
       state.allUsers = action.payload;
-      console.log(state.allUsers);
     },
     SET_CURRENT_USER: (state, action) => {
       state.currentUser = action.payload;

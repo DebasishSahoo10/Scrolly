@@ -23,7 +23,6 @@ export const PostComponent = forwardRef(({post} , ref) => {
   const isBookmarked = data.bookmarks.includes(post._id);
   const auth = useSelector(state => state.auth.auth);
   const user = useSelector(state => state.user);
-  console.log(user)
   const foundUser = user.allUsers.find(
     (user) => user.username === post.username
   );
