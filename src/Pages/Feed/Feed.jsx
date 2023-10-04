@@ -1,21 +1,19 @@
-import { useContext, useState } from "react";
-import { DataContext } from "../../Contexts/DataContext";
-import { UserContext } from "../../Contexts/UserContext";
+import { useState } from "react";
 import { PostComponent } from "../../Components/PostComponent/PostComponent";
 import { FilterButton } from "../../Components/FilterButton/FilterButton";
 import { Nav } from "../../Components/Nav/Nav";
 import HomeStyles from "../Home/Home.module.css"
+import { useSelector } from "react-redux";
 
 const Feed = () => {
-  const { state } = useContext(DataContext);
-  const { userState } = useContext(UserContext);
-  
+  const data = useSelector(state => state.data)
+  const user = useSelector(state => state.user)
   const [sortFilter, setSortFilter] = useState("Trending");
 
-  const filteredState = state.posts
+  const filteredState = data.posts
   .slice()
   .sort((a, b) => sortFilter === "Trending" ? b.likes.likeCount - a.likes.likeCount : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-  .filter((post) => userState.followingUsers.includes(post.username));
+  .filter((post) => user.followingUsers.includes(post.username));
 
   return (
     <div className={HomeStyles.home}>

@@ -1,25 +1,22 @@
-import { useContext } from "react";
 import { useNavigate, useParams } from "react-router";
-
-import { UserContext } from "../../Contexts/UserContext";
-import { AuthContext } from "../../Contexts/AuthContext";
-import { DataContext } from "../../Contexts/DataContext";
 import { Nav } from "../Nav/Nav";
 import { PostComponent } from "../PostComponent/PostComponent";
 import HomeStyles from "../../Pages/Home/Home.module.css";
 import UserStyles from "./User.module.css";
 import { handleFollow } from "../../Utils/utils";
+import { useDispatch, useSelector } from "react-redux";
 // eslint-disable-next-line react/prop-types
 const User = () => {
   const navigate = useNavigate();
   const { username } = useParams();
-  const { userState, userDispatch } = useContext(UserContext);
-  const { auth } = useContext(AuthContext);
-  const isFollow = userState?.currentUser?.following?.some(
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.user)
+  const auth = useSelector(state => state.auth.auth);
+  const isFollow = user?.currentUser?.following?.some(
     (user) => user.username === username
   );
-  const { state } = useContext(DataContext);
-  const selectedUser = userState.allUsers.find(
+  const data = useSelector(state => state.data);
+  const selectedUser = user.allUsers.find(
     (user) => user.username === username
   );
 
@@ -45,12 +42,12 @@ const User = () => {
               auth,
               navigate,
               isFollow,
-              userDispatch
+              dispatch
             )
           }
           style={{
             display:
-              selectedUser.username === userState.currentUser.username &&
+              selectedUser.username === user.currentUser.username &&
               "none",
           }}
         >
@@ -58,7 +55,7 @@ const User = () => {
         </button>
       </div>
       <ul className={HomeStyles.postlists}>
-        {state.posts
+        {data.posts
           .filter((post) => post.username === selectedUser.username)
           .map((post) => {
             return (

@@ -1,11 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useContext, forwardRef} from "react";
+import { forwardRef} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthContext } from "../../Contexts/AuthContext";
-import { DataContext } from "../../Contexts/DataContext";
-import { UserContext } from "../../Contexts/UserContext";
 import Bookmark from "../../assets/Bookmark.svg";
 import Bookmarked from "../../assets/Bookmarked.svg";
 import Like from "../../assets/Like.svg";
@@ -16,15 +13,18 @@ import Edit from "../../assets/Edit.svg";
 import Comment from "../../assets/Comment.svg";
 import PostComponentStyles from "./PostComponent.module.css";
 import { handleBookmark, handleCopyLink, handleDelete, handleEdit, handleFeatureComing, handleLike } from "../../Utils/utils";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export const PostComponent = forwardRef(({post} , ref) => {
   const navigate = useNavigate();
-  const { state, dispatch } = useContext(DataContext);
-  const isBookmarked = state.bookmarks.includes(post._id);
-  const { auth } = useContext(AuthContext);
-  const { userState } = useContext(UserContext);
-  const user = userState.allUsers.find(
+  const dispatch = useDispatch()
+  const data = useSelector(state => state.data)
+  const isBookmarked = data.bookmarks.includes(post._id);
+  const auth = useSelector(state => state.auth.auth);
+  const user = useSelector(state => state.user);
+  console.log(user)
+  const foundUser = user.allUsers.find(
     (user) => user.username === post.username
   );
 
@@ -34,7 +34,7 @@ export const PostComponent = forwardRef(({post} , ref) => {
       <div className={post.img ? PostComponentStyles.imgUsernameButton : PostComponentStyles.usernameButton}>
         <NavLink to={`/user/${post.username}`}>
           <div className={PostComponentStyles.username}>
-            <img src={user.img} alt="" width={35} height={35} className={PostComponentStyles.userImg}/>
+            <img src={foundUser.img} alt="" width={35} height={35} className={PostComponentStyles.userImg}/>
             <div>
               <h3>{post.username}</h3>
               <p className={PostComponentStyles.smalltext}>30 Min Ago</p>
@@ -51,7 +51,7 @@ export const PostComponent = forwardRef(({post} , ref) => {
             height={25}
           />
 
-          {post.username === userState.currentUser.username ? (
+          {post.username === user.currentUser.username ? (
             <>
               <img src={Remove} alt="" onClick={() => handleDelete(post._id, auth, dispatch)} width={25} height={25}/>
               <img src={Edit} alt="" onClick={() => handleEdit(post.content, post._id, dispatch, navigate)} width={21} height={21} className={PostComponentStyles.editIcon}/>

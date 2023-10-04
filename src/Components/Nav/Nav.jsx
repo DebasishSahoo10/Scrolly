@@ -1,16 +1,18 @@
 import { NavLink } from "react-router-dom";
-import NavStyles from "./Nav.module.css"
+import NavStyles from "./Nav.module.css";
 
 export const Nav = () => {
-    const getActiveLinkStyle = ({isActive}) => {
-        if (isActive) {
-            return {color : "#EED91F"}
-        }
-        return {}
+  const getActiveLinkStyle = ({ isActive }) => {
+    if (isActive) {
+      return { color: "#EED91F" };
     }
+    return {};
+  };
   return (
     <div className={NavStyles.navcontainer}>
-      <NavLink to="/" style={getActiveLinkStyle}>Explore</NavLink>
+      <NavLink to="/" style={getActiveLinkStyle}>
+        Explore
+      </NavLink>
       <NavLink to="/selected" style={getActiveLinkStyle}>
         Feed
       </NavLink>
